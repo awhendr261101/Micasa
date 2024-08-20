@@ -14,6 +14,9 @@
   </template>
   
   <style scoped>
+  *{
+    font-family:Roboto
+  }
   .navbar {
     list-style-type: none;
     margin: 0;
