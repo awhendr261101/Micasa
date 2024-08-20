@@ -356,3 +356,71 @@
       font-size: 18px;
     }
   }
+
+  /* Section styling */
+.about-background {
+    background-image: url('https://jords-springy.github.io/hostedimages/images/about.jpg'); /* Replace with your background image URL */
+    background-size: cover;
+    background-position: center;
+    padding: 60px 0;
+   
+  }
+  
+  #about {
+    padding: 60px 0;
+    
+  }
+  
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .title-accent {
+    
+    font-weight: bold;
+    display: block;
+  }
+  
+  h3 {
+    font-size: 28px;
+    font-weight: bold;
+    
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    
+  }
+  
+  .padding-large {
+    padding: 80px 0;
+  }
+  
+  .additional-info {
+    padding: 40px 0;
+    background-color: #f8f9fa;
+  }
+  
+  .additional-info h4 {
+    font-size: 24px;
+    
+  }
+  
+  .additional-info p {
+    font-size: 16px;
+    
+  }
+  
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 24px;
+    }
+  
+    p {
+      font-size: 14px;
+    }
+  }
