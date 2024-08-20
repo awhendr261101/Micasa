@@ -1,7 +1,9 @@
 <template>
     <nav>
       <ul class="navbar">
-        <li class="brand">Micasa</li>
+        <li class="brand">
+          <img src="https://jords-springy.github.io/hostedimages/images/logo.png" alt="Micasa Logo" class="logo" />
+        </li>
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/about">About</router-link></li>
         <li><router-link to="/products">Products</router-link></li>
@@ -14,33 +16,39 @@
   </template>
   
   <style scoped>
-  *{
-    font-family:Roboto
+  * {
+    font-family: Roboto;
   }
+  
   .navbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
     background-color: #FAF9F8;
     width: 100%;
-    height: auto; /* Allow height to adjust based on content */
+    height: auto;
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
-    flex-direction: row; /* Default layout */
+    flex-direction: row;
     align-items: center;
     padding: 0 20px;
     box-sizing: border-box;
     z-index: 1000;
   }
-  
+  .brand{
+    height:min-content;
+    width:min-content
+  }
   .navbar .brand {
-    font-size: 24px;
-    font-weight: bold;
-    color: black;
     margin-right: auto;
   }
+  
+  .navbar .brand .logo {
+  max-width: 60px; /* Reduce the width to 50px */
+  height: 60px; /* Set a fixed height of 30px */
+}
   
   .navbar li {
     margin-left: 20px;
@@ -69,35 +77,31 @@
   /* Default styles for mobile devices */
   @media (max-width: 599px) {
     .navbar {
-      flex-direction: column; /* Stack items vertically on small screens */
+      flex-direction: column;
       padding: 10px;
-      height: auto; /* Allow height to adjust based on content */
+      height: auto;
     }
     .navbar li {
       margin-left: 0;
-      margin-top: 10px; /* Space between stacked items */
+      margin-top: 10px;
     }
     .navbar .brand {
-      font-size: 18px; /* Smaller font size for the brand */
-      margin-bottom: 10px; /* Space below the brand */
+      margin-bottom: 10px;
     }
     .navbar li a {
       padding: 10px;
-      font-size: 12px; /* Smaller font size for links */
+      font-size: 12px;
     }
   }
   
   /* Styles for tablets */
   @media (min-width: 600px) and (max-width: 1023px) {
     .navbar {
-      flex-direction: row; /* Default layout for tablets */
+      flex-direction: row;
       padding: 15px;
     }
     .navbar li {
-      margin-left: 15px; /* Adjust space between items */
-    }
-    .navbar .brand {
-      font-size: 20px; /* Adjusted font size for the brand */
+      margin-left: 15px;
     }
     .navbar li a {
       padding: 12px 15px;
@@ -108,14 +112,11 @@
   /* Styles for small desktops */
   @media (min-width: 1024px) and (max-width: 1439px) {
     .navbar {
-      flex-direction: row; /* Default layout for small desktops */
+      flex-direction: row;
       padding: 20px;
     }
     .navbar li {
       margin-left: 20px;
-    }
-    .navbar .brand {
-      font-size: 22px; /* Adjusted font size for the brand */
     }
     .navbar li a {
       padding: 15px 20px;
@@ -126,14 +127,11 @@
   /* Styles for large desktops */
   @media (min-width: 1440px) {
     .navbar {
-      flex-direction: row; /* Default layout for large desktops */
+      flex-direction: row;
       padding: 25px;
     }
     .navbar li {
       margin-left: 25px;
-    }
-    .navbar .brand {
-      font-size: 24px; /* Larger font size for the brand */
     }
     .navbar li a {
       padding: 20px 25px;
