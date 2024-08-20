@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <!-- Hero Section -->
+   
     <div class="section">
       <img src="https://jords-springy.github.io/hostedimages/images/landing.jpg" alt="Landing Page Image" class="hero-image">
       <div class="text">
@@ -10,7 +10,7 @@
       </div>
     </div>
     
-    <!-- Categories Section -->
+   
     <div class="categories">
       <h2>Shop By Category</h2>
       <div class="category-grid">
@@ -29,7 +29,7 @@
       </div>
     </div>
     
-    <!-- Featured Products Section -->
+    
     <div class="featured-products">
       <h2>Featured Products</h2>
       <div class="product-grid">
@@ -54,7 +54,7 @@
       </div>
     </div>
     
-    <!-- Call-to-Action Section -->
+
 
 
     
@@ -78,7 +78,7 @@
 
 
     
-    <!-- Newsletter Signup Section -->
+  
     <div class="newsletter">
       <h2>Stay Updated!</h2>
       <p>Sign up for our newsletter and never miss out on new arrivals and exclusive offers.</p>
@@ -86,7 +86,6 @@
       <button class="subscribe-btn">Subscribe</button>
     </div>
     
-    <!-- Social Media Links Section -->
     <div class="social-media">
       <h2>Follow Us</h2>
       <a href="https://facebook.com/mi-casa" target="_blank">Facebook</a>
