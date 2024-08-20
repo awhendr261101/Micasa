@@ -2,7 +2,6 @@
   <div class="home">
     <!-- Hero Section -->
     <div class="section">
-      <div class="star-background"></div>
       <img src="https://jords-springy.github.io/hostedimages/images/landing.jpg" alt="Landing Page Image" class="hero-image">
       <div class="text">
         <h1>Welcome to MiCasa</h1>
@@ -10,69 +9,80 @@
         <button class="explore-btn">Explore Our Collection</button>
       </div>
     </div>
-
+    
     <!-- Categories Section -->
     <div class="categories">
       <h2>Shop By Category</h2>
       <div class="category-grid">
         <div class="category">
-          <img src="path/to/category1.jpg" alt="Category 1">
+          <img src="https://jords-springy.github.io/hostedimages/images/livingroom.jpg" alt="Living Room">
           <h3>Living Room</h3>
         </div>
         <div class="category">
-          <img src="path/to/category2.jpg" alt="Category 2">
+          <img src="https://jords-springy.github.io/hostedimages/images/bedroom.jpg" alt="Bedroom">
           <h3>Bedroom</h3>
         </div>
         <div class="category">
-          <img src="path/to/category3.jpg" alt="Category 3">
+          <img src="https://jords-springy.github.io/hostedimages/images/office.jpg" alt="Office">
           <h3>Office</h3>
         </div>
       </div>
     </div>
-
+    
     <!-- Featured Products Section -->
     <div class="featured-products">
       <h2>Featured Products</h2>
       <div class="product-grid">
         <div class="product">
-          <img src="path/to/product1.jpg" alt="Product 1">
+          <img src="https://jords-springy.github.io/hostedimages/images/product.jpg" alt="Product 1">
           <h3>Product 1</h3>
           <p>R49.99</p>
           <button class="view-details-btn">View Details</button>
         </div>
         <div class="product">
-          <img src="path/to/product2.jpg" alt="Product 2">
+          <img src="https://jords-springy.github.io/hostedimages/images/product.jpg" alt="Product 2">
           <h3>Product 2</h3>
           <p>R89.99</p>
           <button class="view-details-btn">View Details</button>
         </div>
         <div class="product">
-          <img src="path/to/product3.jpg" alt="Product 3">
+          <img src="https://jords-springy.github.io/hostedimages/images/product.jpg" alt="Product 3">
           <h3>Product 3</h3>
           <p>R69.99</p>
           <button class="view-details-btn">View Details</button>
         </div>
       </div>
     </div>
-
+    
     <!-- Call-to-Action Section -->
     <div class="cta-section">
-      <h2>Limited Time Offer!</h2>
-      <p>Get 20% off on all items. Use code <strong>SALE20</strong> at checkout.</p>
-      <button class="shop-now-btn">Shop Now</button>
-    </div>
+  <h2>Limited Time Offer!</h2>
+  <p>Transform your home with Micasa's exclusive collection of elegant furniture and modern accents. Whether you're looking for stylish additions to your living room, bedroom, or office, we have something to suit every space.</p>
+  <p>For a limited time only, enjoy 20% off on all items and create the home of your dreams. Use code <strong>SALE20</strong> at checkout and elevate your space with timeless pieces designed to inspire comfort and beauty.</p>
+  <button class="shop-now-btn">Shop Now</button>
+</div>
 
-    <!-- Customer Reviews Section -->
-    <div class="reviews">
-      <h2>Customer Reviews</h2>
-      <div class="review">
-        <p>"Excellent service and high-quality products! Will definitely shop here again." - Emily R.</p>
-      </div>
-      <div class="review">
-        <p>"The furniture is beautiful and exactly as described. Very satisfied!" - Michael B.</p>
-      </div>
+    
+<div class="reviews">
+  <h2>Customer Reviews</h2>
+  <div class="review-cards">
+    <div class="review-card">
+      <p>"Excellent service and high-quality products! Will definitely shop here again."</p>
+      <span>- Emily R.</span>
     </div>
+    <div class="review-card">
+      <p>"The furniture is beautiful and exactly as described. Very satisfied with my purchase!"</p>
+      <span>- Michael B.</span>
+    </div>
+    <div class="review-card">
+      <p>"Fast shipping, great customer support, and the pieces are stunning. Highly recommend!"</p>
+      <span>- Sarah L.</span>
+    </div>
+  </div>
+</div>
 
+
+    
     <!-- Newsletter Signup Section -->
     <div class="newsletter">
       <h2>Stay Updated!</h2>
@@ -80,7 +90,7 @@
       <input type="email" placeholder="Enter your email">
       <button class="subscribe-btn">Subscribe</button>
     </div>
-
+    
     <!-- Social Media Links Section -->
     <div class="social-media">
       <h2>Follow Us</h2>
@@ -89,8 +99,10 @@
       <a href="https://twitter.com/mi-casa" target="_blank">Twitter</a>
     </div>
   </div>
+
 </template>
 
+  
 <script>
 export default {
  
@@ -100,17 +112,21 @@ export default {
 <style scoped>
 * {
   box-sizing: border-box;
-  color:black
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  font-family: 'Merriweather', serif;
+}
+
+/* rest of your CSS code */
 
 .home {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  color: #333;
-  font-family: Arial, sans-serif;
   position: relative;
 }
 
@@ -128,6 +144,8 @@ export default {
   height: 100%;
   object-fit: cover;
   filter: brightness(60%);
+  
+  background-blend-mode: multiply; 
 }
 
 .text {
@@ -138,18 +156,22 @@ export default {
   text-align: center;
   color: #fff;
   padding: 30px;
-  background: #f9f9f9;
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
+  z-index: 1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .text h1 {
   font-size: 48px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  
 }
 
 .text p {
   font-size: 20px;
   margin-bottom: 20px;
+  line-height: 1.5;
 }
 
 .explore-btn {
@@ -160,11 +182,12 @@ export default {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .explore-btn:hover {
   background-color: #a15b4c;
+  transform: scale(1.05);
 }
 
 .categories {
@@ -176,6 +199,7 @@ export default {
   text-align: center;
   font-size: 32px;
   margin-bottom: 30px;
+  font-family: 'Merriweather', serif;
 }
 
 .category-grid {
@@ -188,6 +212,11 @@ export default {
   text-align: center;
   width: 250px;
   margin: 15px;
+  transition: transform 0.3s ease;
+}
+
+.category:hover {
+  transform: scale(1.05);
 }
 
 .category img {
@@ -195,6 +224,11 @@ export default {
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.category img:hover {
+  transform: scale(1.1);
 }
 
 .category h3 {
@@ -204,13 +238,14 @@ export default {
 
 .featured-products {
   padding: 40px 20px;
-  background: #fff;
+  background: #f9f9f9;
 }
 
 .featured-products h2 {
   text-align: center;
   font-size: 32px;
   margin-bottom: 30px;
+  font-family: 'Merriweather', serif;
 }
 
 .product-grid {
@@ -220,7 +255,7 @@ export default {
 }
 
 .product {
-  background: #fefefe;
+  background: #f9f9f9;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -228,12 +263,22 @@ export default {
   width: 220px;
   margin: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.product:hover {
+  transform: scale(1.05);
 }
 
 .product img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.product img:hover {
+  transform: scale(1.1);
 }
 
 .product h3 {
@@ -254,75 +299,103 @@ export default {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .view-details-btn:hover {
   background-color: #a15b4c;
+  transform: scale(1.05);
 }
 
 .cta-section {
   padding: 40px 20px;
   text-align: center;
-  background: #555;
+  background: #e7e4dd;
+ 
   color: #fff;
 }
 
 .cta-section h2 {
-  font-size: 36px;
+  font-size: 28px;
   margin-bottom: 15px;
+  font-family: 'Merriweather', serif;
 }
 
 .cta-section p {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 20px;
 }
 
 .shop-now-btn {
   background-color: #fff;
-  color: #f7b733;
+  color: #b67d6f;
   padding: 12px 25px;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .shop-now-btn:hover {
-  background-color: #f7a30f;
+  background-color: #e6e6e6;
+  transform: scale(1.05);
 }
 
 .reviews {
   padding: 40px 20px;
   background: #f9f9f9;
+  text-align: center;
 }
 
 .reviews h2 {
-  text-align: center;
   font-size: 32px;
   margin-bottom: 30px;
 }
 
-.review {
-  text-align: center;
-  padding: 20px;
-  border: 1px solid #ddd;
-  margin: 10px auto;
-  max-width: 700px;
-  border-radius: 8px;
+.review-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.review-card {
   background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  width: 300px;
+  margin: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.review-card span {
+  font-size: 16px;
+  color: #888;
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .newsletter {
   padding: 40px 20px;
-  background: #f2f2f2;
+  background: #fff;
   text-align: center;
 }
 
 .newsletter h2 {
   font-size: 32px;
   margin-bottom: 20px;
+  font-family: 'Merriweather', serif;
 }
 
 .newsletter p {
@@ -331,9 +404,10 @@ export default {
 }
 
 .newsletter input {
-  padding: 12px;
-  border-radius: 5px;
+  padding: 10px;
+  width: 250px;
   border: 1px solid #ddd;
+  border-radius: 5px;
   margin-right: 10px;
   font-size: 16px;
 }
@@ -341,49 +415,74 @@ export default {
 .subscribe-btn {
   background-color: #b67d6f;
   color: #fff;
-  padding: 12px 25px;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .subscribe-btn:hover {
   background-color: #a15b4c;
+  transform: scale(1.05);
 }
 
 .social-media {
-  padding: 20px;
-  text-align: center;
+  padding: 40px 20px;
   background: #fff;
+  text-align: center;
+  color: #fff;
 }
 
 .social-media h2 {
-  font-size: 32px;
-  margin-bottom: 15px;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-family: 'Merriweather', serif;
 }
 
 .social-media a {
-  margin: 0 15px;
-  color: #0077b5;
+  color: black;
   font-size: 18px;
+  margin: 0 10px;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .social-media a:hover {
-  text-decoration: underline;
+  color: #ddd;
 }
 
-.star-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://example.com/starry-sky.png') repeat;
-  z-index: 1;
-  opacity: 0.4;
-  pointer-events: none;
+
+
+
+@media (max-width: 768px) {
+  .category-grid, .product-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .category, .product {
+    width: 80%;
+  }
+
+  .hero-image {
+    object-fit: contain;
+  }
+
+  .text {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .text h1 {
+    font-size: 32px;
+  }
+
+  .text p {
+    font-size: 18px;
+  }
 }
 </style>
