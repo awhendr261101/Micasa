@@ -10,7 +10,7 @@
         <!-- Contact Information Section -->
         <div class="contact-info">
           <p>
-            We're here to help you make your home beautiful! Whether you need design advice, have questions about our products, or need assistance with an order, reach out to us anytime. Let's create your perfect space together!
+            We’re here to assist you in making your home truly beautiful. Whether you need design advice, have inquiries about our products, or require help with an order, please feel free to contact us at any time. Let’s work together to create your ideal space!
           </p>
           <div class="info-section">
             <div class="office-info">

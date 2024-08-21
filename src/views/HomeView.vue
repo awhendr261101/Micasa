@@ -5,7 +5,8 @@
       <img src="https://jords-springy.github.io/hostedimages/images/landing.jpg" alt="Landing Page Image" class="hero-image">
       <div class="text">
         <h1>Welcome to Micasa</h1>
-        <p>Transform any space into a cozy, elegant haven. Discover a curated collection of unique furniture, modern accents, and timeless pieces designed to inspire and elevate your home.</p>
+        <p>
+Turn any space into a stylish, inviting retreat with our curated selection of distinctive furniture, contemporary accents, and classic pieces. Explore our collection designed to inspire and enhance the elegance of your home.</p>
         <button class="explore-btn">Explore Our Collection</button>
       </div>
     </div>
@@ -62,16 +63,16 @@
   <h2>Customer Reviews</h2>
   <div class="review-cards">
     <div class="review-card">
-      <p>"Excellent service and high-quality products! Will definitely shop here again."</p>
-      <span>- Emily R.</span>
+      <p>"Outstanding service and top-notch products! I will definitely return to shop here."</p>
+      <span>- Jamie</span>
     </div>
     <div class="review-card">
-      <p>"The furniture is beautiful and exactly as described. Very satisfied with my purchase!"</p>
-      <span>- Michael B.</span>
+      <p>"The furniture is gorgeous and matches the description perfectly. I’m very pleased with my purchase!"</p>
+      <span>- Alex</span>
     </div>
     <div class="review-card">
-      <p>"Fast shipping, great customer support, and the pieces are stunning. Highly recommend!"</p>
-      <span>- Sarah L.</span>
+      <p>"Quick shipping, excellent customer service, and the items are beautiful. I highly recommend this store!"</p>
+      <span>- Robyn</span>
     </div>
   </div>
 </div>
@@ -81,7 +82,7 @@
   
     <div class="newsletter">
       <h2>Stay Updated!</h2>
-      <p>Sign up for our newsletter and never miss out on new arrivals and exclusive offers.</p>
+      <p>Subscribe to our newsletter to stay updated on the latest arrivals and special promotions.</p>
       <input type="email" placeholder="Enter your email">
       <button class="subscribe-btn">Subscribe</button>
     </div>
