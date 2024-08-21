@@ -30,22 +30,22 @@
     </div>
     
     
-    <div class="featured-products">
+    <div class="home-featured-products">
       <h2>Featured Products</h2>
-      <div class="product-grid">
-        <div class="product">
+      <div class="home-product-grid">
+        <div class="home-product">
           <img src="https://jords-springy.github.io/hostedimages/images/product.jpg" alt="Product 1">
           <h3>Product 1</h3>
           <p>R49.99</p>
           <button class="view-details-btn">View Details</button>
         </div>
-        <div class="product">
+        <div class="home-product">
           <img src="https://jords-springy.github.io/hostedimages/images/product.jpg" alt="Product 2">
           <h3>Product 2</h3>
           <p>R89.99</p>
           <button class="view-details-btn">View Details</button>
         </div>
-        <div class="product">
+        <div class="home-product">
           <img src="https://jords-springy.github.io/hostedimages/images/product.jpg" alt="Product 3">
           <h3>Product 3</h3>
           <p>R69.99</p>

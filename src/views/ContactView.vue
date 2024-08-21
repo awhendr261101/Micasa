@@ -68,81 +68,8 @@
   </template>
   
   <style scoped>
+  @import '../assets/css/styles.css'
   
-  .contact-header {
-    background-image: url('https://jords-springy.github.io/hostedimages/images/contactpage.jpg'); /* Replace with your image URL */
-    background-size: cover;
-    background-position: center;
-    height: 100vh; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
-  
-
-  
-  .contact-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 50px;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
- 
-  .contact-info {
-    width: 45%;
-  }
-  
-  .office-info p {
-    margin: 0;
-  }
-  
- 
-  .contact-form {
-    width: 45%;
-  }
-  
-  .contact-form form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .contact-form label {
-    margin-top: 15px;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  .contact-form textarea {
-    height: 150px;
-  }
-  
-  .contact-form button {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .contact-form button:hover {
-    background-color: #444;
-  }
 
   </style>
   

@@ -1,32 +1,26 @@
 <template>
     <div class="product-page">
-      <!-- Main Product Image Section -->
+      
       <div class="product-header">
         <h1>Products</h1>
       </div>
       <h2>What we offer</h2>
-      <!-- Product Listing and Sidebar Section -->
+      
       <div class="content-container">
+        
         <div class="product-grid">
-          <div v-for="product in products" :key="product.id" class="product-card">
-            <img :src="product.image" :alt="product.name" />
-            <div class="product-info">
-              <h3>{{ product.name }}</h3>
-              <button class="view-more-btn" @click="toggleProductDetails(product)">
-                View More
-              </button>
-            </div>
-            <div class="product-details" v-if="product.showDetails">
-              <p>{{ product.description }}</p>
-              <p>R{{ product.price }}</p>
-            </div>
-          </div>
+          <CardComp
+            v-for="product in sortedProducts"
+            :key="product.id"
+            :product="product"
+            @toggle-details="toggleProductDetails"
+          />
         </div>
   
-        <!-- Sidebar Filters -->
+      
         <div class="sidebar">
           <div class="search-container">
-            <input type="text" placeholder="Search..." />
+            <input type="text" placeholder="Search..." v-model="searchQuery" />
             <button type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,48 +38,146 @@
           </div>
           <h4>Categories</h4>
           <ul>
-            <li v-for="category in categories" :key="category">{{ category }}</li>
+            <li @click="showAllProducts">All Products</li>
+            <li v-for="(category, index) in categories" :key="category + index" @click="filterByCategory(category)">
+              {{ category }}
+            </li>
           </ul>
   
           <h4>Filter by Price</h4>
           <ul>
-            <li v-for="price in priceFilters" :key="price">{{ price }}</li>
+            <li
+              v-for="(priceRange, index) in priceFilters"
+              :key="priceRange.label + index"
+              @click="filterByPriceRange(priceRange)"
+            >
+              {{ priceRange.label }}
+            </li>
           </ul>
+  
+          <select v-model="sortOrder" @change="persistSortOrder">
+            <option value="id-asc">Select Sort Order</option>
+            <option value="asc">Price: Low to High</option>
+            <option value="desc">Price: High to Low</option>
+          </select>
         </div>
       </div>
     </div>
   </template>
   
-  
   <script>
+  import CardComp from "../components/CardComp.vue";
+  
   export default {
-    name: 'ProductPage',
+    name: "ProductsView",
+    components: {
+      CardComp,
+    },
     data() {
       return {
         products: [
-          { id: 1, name: 'Product 1', image: 'https://jords-springy.github.io/hostedimages/images/product.jpg', price: 100, description: 'This is a description of Product 1', showDetails: false },
-          { id: 2, name: 'Product 2', image: 'https://jords-springy.github.io/hostedimages/images/product.jpg', price: 200, description: 'This is a description of Product 2', showDetails: false },
-          { id: 3, name: 'Product 3', image: 'https://jords-springy.github.io/hostedimages/images/product.jpg', price: 150, description: 'This is a description of Product 3', showDetails: false },
-          { id: 4, name: 'Product 4', image: 'https://jords-springy.github.io/hostedimages/images/product.jpg', price: 350, description: 'This is a description of Product 4', showDetails: false },
-          { id: 5, name: 'Product 5', image: 'https://jords-springy.github.io/hostedimages/images/product.jpg', price: 120, description: 'This is a description of Product 5', showDetails: false },
-          { id: 6, name: 'Product 6', image: 'https://jords-springy.github.io/hostedimages/images/product.jpg', price: 375, description: 'This is a description of Product 6', showDetails: false },
-          { id: 7, name: 'Product 7', image: 'https://jords-springy.github.io/hostedimages/images/product.jpg', price: 250, description: 'This is a description of Product 7', showDetails: false },
-          { id: 8, name: 'Product 8', image: 'https://jords-springy.github.io/hostedimages/images/product.jpg', price: 125, description: 'This is a description of Product 8', showDetails: false },
-          { id: 9, name: 'Product 9', image: 'https://jords-springy.github.io/hostedimages/images/product.jpg', price: 325, description: 'This is a description of Product 9', showDetails: false },
-          { id: 10, name: 'Product 10', image: 'https://jords-springy.github.io/hostedimages/images/product.jpg', price: 140, description: 'This is a description of Product 10', showDetails: false },
-          { id: 11, name: 'Product 11', image: 'https://jords-springy.github.io/hostedimages/images/product.jpg', price: 170, description: 'This is a description of Product 11', showDetails: false },
-          { id: 12, name: 'Product 12', image: 'https://jords-springy.github.io/hostedimages/images/product.jpg', price: 110, description: 'This is a description of Product 12', showDetails: false },
-          // Add more products as needed
+          { id: 1, name: "Product 1", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 100, description: "This is a description of Product 1", category: "Living Room" },
+          { id: 2, name: "Product 2", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 200, description: "This is a description of Product 2", category: "Bedroom" },
+          { id: 3, name: "Product 3", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 400, description: "This is a description of Product 3", category: "Office" },
+          { id: 4, name: "Product 4", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 150, description: "This is a description of Product 4", category: "Living Room" },
+          { id: 5, name: "Product 5", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 500, description: "This is a description of Product 5", category: "Living Room" },
+          { id: 6, name: "Product 6", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 95, description: "This is a description of Product 6", category: "Office" },
+          { id: 7, name: "Product 7", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 175, description: "This is a description of Product 7", category: "Living Room" },
+          { id: 8, name: "Product 8", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 225, description: "This is a description of Product 8", category: "Bedroom" },
+          { id: 9, name: "Product 9", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 120, description: "This is a description of Product 9", category: "Living Room" },
+          { id: 10, name: "Product 10", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 300, description: "This is a description of Product 10", category: "Living Room" },
+          { id: 11, name: "Product 11", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 345, description: "This is a description of Product 11", category: "Bedroom" },
+          { id: 12, name: "Product 12", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 140, description: "This is a description of Product 12", category: "Office" },
         ],
-        categories: ['Living Room', 'Bedroom', 'Office'],
-        priceFilters: ['R0 - R100', 'R100 - R200', 'R200 - R300', 'R300 - R400', 'R400 - R500'],
+        categories: ["Living Room", "Bedroom", "Office"],
+        priceFilters: [
+          { label: "R0 - R100", min: 0, max: 100 },
+          { label: "R100 - R200", min: 100, max: 200 },
+          { label: "R200 - R300", min: 200, max: 300 },
+          { label: "R300 - R400", min: 300, max: 400 },
+          { label: "R400 - R500", min: 400, max: 500 },
+        ],
+        selectedCategory: null,
+        selectedPriceRange: null,
+        searchQuery: "",
+        sortOrder: "asc", 
       };
     },
-    methods: {
-      toggleProductDetails(product) {
-        product.showDetails = !product.showDetails;
+    computed: {
+      filteredProducts() {
+        let filtered = this.products;
+  
+        if (this.selectedCategory) {
+          filtered = filtered.filter((product) => product.category === this.selectedCategory);
+        }
+  
+        if (this.selectedPriceRange) {
+          filtered = filtered.filter((product) => {
+            const price = Number(product.price);
+            return price >= this.selectedPriceRange.min && price <= this.selectedPriceRange.max;
+          });
+        }
+  
+        if (this.searchQuery) {
+          filtered = filtered.filter((product) =>
+            product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+          );
+        }
+  
+        return filtered;
+      },
+      sortedProducts() {
+    return this.filteredProducts.slice().sort((a, b) => {
+      if (this.sortOrder === "asc") {
+       
+        return Number(a.price) - Number(b.price);
+      } else if (this.sortOrder === "desc") {
+       
+        return Number(b.price) - Number(a.price);
+      } else if (this.sortOrder === "id-asc") {
+        
+        return a.id - b.id;
+      } else if (this.sortOrder === "id-desc") {
+      
+        return b.id - a.id;
+      } else {
+        
+        return 0;
       }
-    }
+    });
+  },
+},
+    methods: {
+      filterByCategory(category) {
+        this.selectedCategory = category;
+      },
+      filterByPriceRange(priceRange) {
+        this.selectedPriceRange = priceRange;
+      },
+      showAllProducts() {
+        this.selectedCategory = null;
+        this.selectedPriceRange = null;
+      },
+      persistSortOrder() {
+        if (this.sortOrder) {
+          localStorage.setItem("sortOrder", this.sortOrder);
+        } else {
+          localStorage.removeItem("sortOrder");
+        }
+      },
+      retrieveSortOrder() {
+        const savedSortOrder = localStorage.getItem("sortOrder");
+        if (savedSortOrder) {
+          this.sortOrder = savedSortOrder;
+        }
+      },
+      toggleProductDetails(product) {
+        // Implement the logic to toggle product details
+      },
+    },
+    created() {
+      this.retrieveSortOrder(); // Retrieve sort order when component is created
+    },
   };
   </script>
   
@@ -115,145 +207,34 @@
   /* Product Grid */
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(4, 1fr));
     gap: 20px;
     width: 75%;
   }
   
-  .product-card {
-    background-color: white;
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-  }
-  
-  .product-card img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .product-info {
-    margin-top: 15px;
-  }
-  
-  .product-info h3 {
-    font-size: 16px;
-    font-weight: normal;
-  }
-  
-  .product-info .view-more-btn {
-    margin-top: 10px;
-    background-color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .product-details {
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-  }
-  
-  .product-details h4 {
-    margin-top: 0;
-  }
-  
-  /* Sidebar */
+  /* Sidebar Styling */
   .sidebar {
     width: 25%;
-    padding-left: 20px;
-  }
-  
-  .sidebar input[type="search"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-  }
-  
-  .sidebar h4 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar ul li {
-    margin-bottom: 8px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .sidebar ul li:hover {
-    text-decoration: underline;
+    padding: 20px;
   }
   
   .search-container {
     display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
   }
   
-  .search-container input {
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px 0 0 5px;
+  input[type="text"] {
     flex-grow: 1;
   }
   
-  .search-container button {
-    background-color: #fff;
+  button {
+    background-color: #eee;
     border: none;
-    padding: 10px;
     cursor: pointer;
-    border-radius: 0 5px 5px 0;
   }
   
-  .search-container button svg {
-    fill: #333;
-    width: 18px;
-    height: 18px;
-  }
-  
-  .search-container button:hover svg {
-    fill: #000;
-  }
-  
-  /* Responsive Design */
-  @media screen and (max-width: 768px) {
-    .content-container {
-      flex-direction: column;
-    }
-  
-    .product-grid {
-      width: 100%;
-      grid-template-columns: repeat(2, 1fr);
-    }
-  
-    .sidebar {
-      width: 100%;
-      padding-left: 0;
-      margin-top: 30px;
-    }
-  }
-  
-  @media screen and (max-width: 480px) {
-    .product-grid {
-      grid-template-columns: repeat(1, 1fr);
-    }
+  select {
+    width: 100%;
+    margin-top: 20px;
   }
   </style>
   
