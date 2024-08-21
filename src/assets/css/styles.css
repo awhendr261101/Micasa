@@ -4,20 +4,16 @@
     margin: 0;
     padding: 0;
   }
-  
   body {
     font-family: 'Merriweather', serif;
   }
-  
   /* rest of your CSS code */
-  
   .home {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     position: relative;
   }
-  
   .section {
     position: relative;
     height: 100vh;
@@ -26,16 +22,13 @@
     align-items: center;
     overflow: hidden;
   }
-  
   .hero-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     filter: brightness(60%);
-    
-    background-blend-mode: multiply; 
+    background-blend-mode: multiply;
   }
-  
   .text {
     position: absolute;
     top: 50%;
@@ -49,21 +42,17 @@
     z-index: 1;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   }
-  
   .text h1 {
     font-size: 48px;
     margin-bottom: 15px;
-    
   }
-  
   .text p {
     font-size: 20px;
     margin-bottom: 20px;
     line-height: 1.5;
   }
-  
   .explore-btn {
-    background-color: #b67d6f;
+    background-color: #B8A18E;
     color: #fff;
     padding: 12px 25px;
     border: none;
@@ -72,41 +61,34 @@
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
-  
   .explore-btn:hover {
-    background-color: #a15b4c;
+    background-color: #A15B4C;
     transform: scale(1.05);
   }
-  
   .categories {
     padding: 40px 20px;
-    background: #f9f9f9;
+    background: #F9F9F9;
   }
-  
   .categories h2 {
     text-align: center;
     font-size: 32px;
     margin-bottom: 30px;
     font-family: 'Merriweather', serif;
   }
-  
   .category-grid {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
   }
-  
   .category {
     text-align: center;
     width: 250px;
     margin: 15px;
     transition: transform 0.3s ease;
   }
-  
   .category:hover {
     transform: scale(1.05);
   }
-  
   .category img {
     width: 100%;
     height: auto;
@@ -114,36 +96,30 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
   }
-  
   .category img:hover {
     transform: scale(1.1);
   }
-  
   .category h3 {
     margin-top: 10px;
     font-size: 20px;
   }
-  
   .featured-products {
     padding: 40px 20px;
-    background: #f9f9f9;
+    background: #F9F9F9;
   }
-  
   .featured-products h2 {
     text-align: center;
     font-size: 32px;
     margin-bottom: 30px;
     font-family: 'Merriweather', serif;
   }
-  
   .product-grid {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
   }
-  
   .product {
-    background: #f9f9f9;
+    background: #F9F9F9;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -153,34 +129,28 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
   }
-  
   .product:hover {
     transform: scale(1.05);
   }
-  
   .product img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
     transition: transform 0.3s ease;
   }
-  
   .product img:hover {
     transform: scale(1.1);
   }
-  
   .product h3 {
     font-size: 18px;
     margin: 10px 0;
   }
-  
   .product p {
     font-size: 16px;
     color: #555;
   }
-  
   .view-details-btn {
-    background-color: #b67d6f;
+    background-color: #B8A18E;
     color: #fff;
     padding: 10px;
     border: none;
@@ -189,17 +159,13 @@
     margin-top: 10px;
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
-  
   .view-details-btn:hover {
-    background-color: #a15b4c;
+    background-color: #A15B4C;
     transform: scale(1.05);
   }
-  
-  
-  
   .shop-now-btn {
     background-color: #fff;
-    color: #b67d6f;
+    color: #B8A18E;
     padding: 12px 25px;
     border: none;
     border-radius: 5px;
@@ -207,29 +173,24 @@
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
-  
   .shop-now-btn:hover {
-    background-color: #e6e6e6;
+    background-color: #E6E6E6;
     transform: scale(1.05);
   }
-  
   .reviews {
     padding: 40px 20px;
-    background: #f9f9f9;
+    background: #F9F9F9;
     text-align: center;
   }
-  
   .reviews h2 {
     font-size: 32px;
     margin-bottom: 30px;
   }
-  
   .review-cards {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
   }
-  
   .review-card {
     background: #fff;
     padding: 20px;
@@ -240,40 +201,33 @@
     margin: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
   .review-card p {
     font-size: 18px;
     margin-bottom: 15px;
     color: #333;
   }
-  
   .review-card span {
     font-size: 16px;
     color: #888;
   }
-  
   .review-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   }
-  
   .newsletter {
     padding: 40px 20px;
     background: #fff;
     text-align: center;
   }
-  
   .newsletter h2 {
     font-size: 32px;
     margin-bottom: 20px;
     font-family: 'Merriweather', serif;
   }
-  
   .newsletter p {
     font-size: 18px;
     margin-bottom: 20px;
   }
-  
   .newsletter input {
     padding: 10px;
     width: 250px;
@@ -282,9 +236,8 @@
     margin-right: 10px;
     font-size: 16px;
   }
-  
   .subscribe-btn {
-    background-color: #b67d6f;
+    background-color: #B8A18E;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -293,25 +246,21 @@
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
-  
   .subscribe-btn:hover {
-    background-color: #a15b4c;
+    background-color: #A15B4C;
     transform: scale(1.05);
   }
-  
   .social-media {
     padding: 40px 20px;
     background: #fff;
     text-align: center;
     color: #fff;
   }
-  
   .social-media h2 {
     font-size: 28px;
     margin-bottom: 20px;
     font-family: 'Merriweather', serif;
   }
-  
   .social-media a {
     color: black;
     font-size: 18px;
@@ -319,108 +268,252 @@
     text-decoration: none;
     transition: color 0.3s ease;
   }
-  
   .social-media a:hover {
     color: #ddd;
   }
-  
-  
-  
-  
   @media (max-width: 768px) {
     .category-grid, .product-grid {
       flex-direction: column;
       align-items: center;
     }
-  
     .category, .product {
       width: 80%;
     }
-  
     .hero-image {
       object-fit: contain;
     }
-  
     .text {
       width: 90%;
       padding: 20px;
     }
   }
-  
   @media (max-width: 480px) {
     .text h1 {
       font-size: 32px;
     }
-  
     .text p {
       font-size: 18px;
     }
   }
-
   /* Section styling */
 .about-background {
     background-image: url('https://jords-springy.github.io/hostedimages/images/about.jpg'); /* Replace with your background image URL */
     background-size: cover;
     background-position: center;
     padding: 60px 0;
-   
   }
-  
   #about {
     padding: 60px 0;
-    
   }
-  
   .container {
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 15px;
   }
-  
   .title-accent {
-    
     font-weight: bold;
     display: block;
   }
-  
   h3 {
     font-size: 28px;
     font-weight: bold;
-    
     margin-bottom: 20px;
   }
-  
   p {
     font-size: 16px;
     line-height: 1.6;
-    
   }
-  
   .padding-large {
     padding: 80px 0;
   }
-  
   .additional-info {
     padding: 40px 0;
-    background-color: #f8f9fa;
+    background-color: #F8F9FA;
   }
-  
   .additional-info h4 {
     font-size: 24px;
-    
   }
-  
   .additional-info p {
     font-size: 16px;
-    
   }
-  
   @media (max-width: 768px) {
     h3 {
       font-size: 24px;
     }
-  
     p {
       font-size: 14px;
+    }
+  }
+  .about-background {
+    background-image: url('https://jords-springy.github.io/hostedimages/images/about.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-heading {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+  h1 {
+    color: #474040;
+    font-size: 36px;
+  }
+  h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 30px;
+      font-family: 'Merriweather', serif;
+  }
+  /* Icon and Text Block Styling */
+  .icon-text-block {
+    margin-bottom: 40px; /* Spacing between rows */
+    padding: 20px;
+  }
+  .icon-text-block i {
+    color: #B8A18E; /* Customize the icon color */
+    margin-bottom: 15px;
+    transition: color 0.3s, transform 0.3s;
+  }
+  .icon-text-block:hover i {
+    color: #CFCDCD; /* Change color on hover */
+    transform: scale(1.2); /* Scale up on hover */
+  }
+  h3 {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  /* What We Offer Section */
+  .what-we-offer {
+    background-color: #F9F9F9;
+    padding: 50px 0;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+  }
+  .what-we-offer h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .intro-text {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 40px;
+  }
+  .offer-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .offer-list li {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    position: relative;
+  }
+  .offer-list li::before {
+    content: "\f00c"; /* Font Awesome checkmark icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #B67D6F;
+    font-size: 20px;
+  }
+  .offer-list strong {
+    color: #333;
+    font-weight: 600;
+  }
+  /* Values Section */
+  .values-section {
+    background-color: #F9F9F9;
+    padding: 50px 0;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+  }
+  .values-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .value-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .value-item:hover {
+    transform: translateY(-10px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Shadow effect */
+  }
+  .value-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+  .value-item h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  .value-item p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+  }
+  /* Additional Information */
+  .additional-info {
+    padding: 40px 0;
+    background-color: #F8F9FA;
+  }
+  .additional-info h4 {
+    font-size: 24px;
+  }
+  .additional-info p {
+    font-size: 16px;
+    color: #555;
+  }
+  svg {
+    color: #B8A18E;
+    transition: color 0.3s, transform 0.3s;
+  }
+  .icon-text-block:hover > svg {
+    color: #B8A18E; /* Change icon color on hover */
+    transform: scale(1.2); /* Scale up on hover */
+  }
+  .value-item:hover > svg {
+    fill: #B8A18E; /* Change icon color on hover */
+    transform: scale(1.2); /* Scale up on hover */
+  }
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .icon-text-block {
+      margin-bottom: 30px;
+    }
+    h1 {
+      font-size: 30px;
+    }
+    h3 {
+      font-size: 16px;
+    }
+    .icon-text-block i {
+      margin-bottom: 10px;
     }
   }
