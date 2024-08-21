@@ -14,13 +14,13 @@ userRouter.get('/', (req, res) => {
     User.fetchAllUsers(req, res)
 })
 
+userRouter.post('/register', async (req, res) => {
+    User.registerUser(req, res)
+})
 userRouter.get('/:id', (req, res) => {
     User.fetchUserById(req, res)
 })
 
-userRouter.post('/register', async (req, res) => {
-    User.registerUser(req, res)
-})
 
 userRouter.patch('/:id', async (req, res) => {
     User.updateUser(req, res)
@@ -29,6 +29,8 @@ userRouter.patch('/:id', async (req, res) => {
 userRouter.delete('/:id', async (req, res) => {
     User.deletUser(req, res)
 });
+
+userRouter.post('/login')
 
 export {
     express,

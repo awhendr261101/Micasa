@@ -18,16 +18,16 @@ prodRouter.get('/', (req, res) => {
     Products.fetchAllProducts(req, res)
 })
 
-prodRouter.get('/product/:id', (req, res) => {
-    Products.fetchOneProduct(req, res)
-})
-
 prodRouter.post('/addproduct', (req, res) => {
     Products.addProduct(req, res)
 })
 
-prodRouter.get('/Recent', (req, res) => {
+prodRouter.get('/recent', (req, res) => {
     Products.fetchRecentProducts(req, res)
+})
+
+prodRouter.get('/:id', (req, res) => {
+    Products.fetchOneProduct(req, res)
 })
 
 prodRouter.patch('/:id', (req, res) => {

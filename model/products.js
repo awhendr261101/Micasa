@@ -31,7 +31,7 @@ class Products{
         try {
             const { id } = req.params
     
-            db.query(`SELECT * FROM Products WHERE productID = ${id}`, (err, result) => {
+            db.query(`SELECT * FROM Products WHERE prodID = ${id}`, (err, result) => {
                 if (err) throw new Error(err);
                 res.json({
                     statusCode: 200,
@@ -48,7 +48,7 @@ class Products{
 
     static fetchRecentProducts(req, res) {
         try {
-            db.query('SELECT * FROM Products ORDER BY productID DESC LIMIT 5', (err, result) => {
+            db.query('SELECT * FROM Products ORDER BY prodID DESC LIMIT 3', (err, result) => {
                 if (err) throw new Error(err);
                 res.json({
                     statusCode: 200,
@@ -87,7 +87,7 @@ class Products{
         try {
             let data = req.body
             
-            db.query(`UPDATE Products SET ? WHERE productID = ${req.params.id}`, [data], (err) => {
+            db.query(`UPDATE Products SET ? WHERE prodID = ${req.params.id}`, [data], (err) => {
                 if (err) throw new Error (err);
                 res.json({
                     status: res.statusCode,
@@ -104,7 +104,7 @@ class Products{
 
     static deleteProduct(req, res){
         try {
-            db.query(`DELETE FROM Products WHERE productID = ${req.params.id}`, (err) => {
+            db.query(`DELETE FROM Products WHERE prodID = ${req.params.id}`, (err) => {
                 if (err) throw new Error (err);
                 res.json({
                     status: res.statusCode,

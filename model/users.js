@@ -1,5 +1,4 @@
 import { connection as db } from "../config/index.js";
-
 import { creatToken } from "../middleware/authenticateUser.js";
 
 import { compare, hash } from "bcrypt";
@@ -36,8 +35,8 @@ class User{
     static fetchUserById(req, res){
         try {
             const { id } = req.params;
-            return db.query(`SELECT firstName, lastName, age FROM Users WHERE userID = ${id}` , (err, data) => {
-                if(err) throw new Error("Oops something went ");
+            return db.query(`SELECT * FROM Users WHERE userID = ${id}` , (err, data) => {
+                if(err) throw new Error(err);
                 res.status(200).json(data)
             })
         } catch (err) {
@@ -52,9 +51,9 @@ class User{
         try {
             let data = req.body
     
-            data.pwd = await hash(data.pwd, 12)
+            data.userPass = await hash(data.userPass, 12)
             // payload
-            let user = {email: data.emailAdd, password: data.pwd}
+            let user = {email: data.emailAdd, password: data.userPass}
             
             db.query('INSERT INTO Users SET ?', [data], (err, result) => {
                 if(err){throw new Error("Oops something went wrong");
@@ -131,9 +130,9 @@ class User{
                         message: 'You have entered an invalid email address'
                     })
                 } else {
-                    const isvalidPwd = await compare(pwd, result[0].pwd)
+                    const isvalidPwd = await compare(userPass, result[0].userPass)
                     if(isvalidPwd){
-                        const token = creatToken({email: emailAdd, password: pwd})
+                        const token = creatToken({email: emailAdd, password: userPass})
                         res.status(200).json({
                             statusCode: req.statusCode,
                             message: 'Login successful',
