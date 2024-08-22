@@ -32,7 +32,7 @@
     <div class="home-featured-products">
       <h2>Featured Products</h2>
       <div class="home-product-grid">
-        <CardComp 
+        <SingleCard
           v-for="product in featuredProducts" 
           :key="product.prodID" 
           :product="product"
@@ -43,7 +43,7 @@
           <template #title>
             <h3>{{ product.prodName }}</h3>
           </template>
-        </CardComp>
+        </SingleCard>
 
         <div v-if="!featuredProducts.length">
           <p>No featured products available.</p>
@@ -92,11 +92,11 @@
 
 
 <script>
-import CardComp from '../components/CardComp.vue'; // Adjust the path as needed
+import SingleCard from '../components/SingleCard.vue'; // Adjust the path as needed
 
 export default {
   components: {
-    CardComp
+    SingleCard
   },
   data() {
     return {

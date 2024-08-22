@@ -11,7 +11,7 @@
     :key="product.id"
     :product="product"
     @toggle-details="toggleProductDetails"
-  >
+   >
     <template v-if="product.showDetails">
       <!-- render product details here -->
     </template>
