@@ -38,7 +38,7 @@ export default {
 },
   mounted() {
     this.fetchData();
-    AOS.init(); // Initialize AOS when the component is mounted
+    // AOS.init(); // Initialize AOS when the component is mounted
   },
   methods: {
     async fetchData() {
@@ -55,7 +55,8 @@ export default {
 
 </script>
 <style>
-#app {
+@import url('./assets/css/styles.css');
+/* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -78,5 +79,5 @@ nav a.router-link-exact-active {
 
   body{
     background-color: #FAF9F8;
-  }
+  } */
 </style>

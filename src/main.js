@@ -9,4 +9,4 @@ import './assets/css/styles.css';
 
 createApp(App).use(store).use(router).mount('#app')
 
-AOS.init();
+// AOS.init();

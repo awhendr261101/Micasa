@@ -23,9 +23,11 @@
         </button>
 
       </slot>
+      <div class="oneProd-container">
       <slot name="oneProd">
 
       </slot>
+    </div>
     </div>
   </template>
   
@@ -53,5 +55,7 @@
   
   <style scoped>
   @import url('../assets/css/styles.css');
+
+
   </style>
   

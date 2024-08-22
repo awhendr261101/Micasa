@@ -23,7 +23,7 @@
         </button>
 
         <router-link :to="`product/${product.prodID}`">
-            <button>
+            <button class="view-product-btn">
                 View Product
             </button>
         </router-link>
