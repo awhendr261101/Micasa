@@ -318,8 +318,20 @@
     justify-content: center; /* Center the cards horizontally */
   flex-wrap: wrap; /* Allow cards to wrap to the next line */
   gap: 250px; /* Increased space between cards */
+  animation: bounce 4s ease infinite;
   }
   
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
   .review-card {
     flex: 1;
     max-width: 300px; /* adjust the max width as needed */
@@ -428,11 +440,9 @@
     background-image: url('https://jords-springy.github.io/hostedimages/images/about.jpg'); /* Replace with your background image URL */
     background-size: cover;
     background-position: center;
-    padding: 60px 0;
+  
   }
-  #about {
-    padding: 60px 0;
-  }
+ 
   .container {
     max-width: 1140px;
     margin: 0 auto;
@@ -476,13 +486,13 @@
     background-image: url('https://jords-springy.github.io/hostedimages/images/about.jpg');
     background-size: cover;
     background-position: center;
-    height: 95vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .about-heading {
-    position: relative;
+    margin-top: -140px;
     z-index: 2;
     text-align: center;
   }
@@ -883,3 +893,92 @@
   .contact-form button:hover {
     background-color: #444;
   }
+
+  @keyframes side-to-side {
+    0%, 100% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+.moving-icon {
+    display: inline-block; /* Ensures the animations work correctly */
+    animation: spin 5s linear infinite, side-to-side 1s ease-in-out infinite;
+}
+
+/* Base styles for the section */
+.responsive-section {
+    padding: 20px;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .responsive-section .content {
+    max-width: 1200px; /* Maximum width for larger screens */
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Typography */
+  .responsive-section h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .responsive-section p {
+    font-size: 1.2rem;
+  }
+  
+  /* Media queries for responsiveness */
+  
+  /* For small screens like mobile devices (300px - 599px) */
+  @media (max-width: 599px) {
+    .section h1 {
+      font-size: 1.5rem;
+    }
+  
+    .section p {
+      font-size: 1rem;
+    }
+  
+    .section .content {
+      padding: 15px;
+    }
+  }
+  
+  /* For medium screens like tablets (600px - 1023px) */
+  @media (min-width: 600px) and (max-width: 1023px) {
+    .-section h1 {
+      font-size: 2.5rem;
+    }
+  
+    .section p {
+      font-size: 1.1rem;
+    }
+  
+    .section .content {
+      padding: 30px;
+    }
+  }
+  
+  /* For large screens like desktops (1024px - 1440px) */
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    .section h1 {
+      font-size: 3rem;
+    }
+  
+    .section p {
+      font-size: 1.3rem;
+    }
+  
+    .section .content {
+      padding: 40px;
+    }
+  }
+  

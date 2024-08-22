@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    
+
+<div data-aos="fade-down" data-aos-duration="500">
     <div class="section">
       <img src="https://jords-springy.github.io/hostedimages/images/landing.jpg" alt="Landing Page Image" class="hero-image">
       <div class="text">
@@ -13,9 +16,10 @@
 
       </div>
     </div>
+</div>
 
+<div data-aos="fade-right" data-aos-duration="500">
     <div class="categories">
-    
       <div class="category-grid">
         <div class="category">
           <img src="https://jords-springy.github.io/hostedimages/images/livingroom.jpg" alt="Living Room">
@@ -28,7 +32,9 @@
         </div>
       </div>
     </div>
+</div>
 
+<div data-aos="fade-right" data-aos-duration="500">
     <div class="home-featured-products">
       <h2>Featured Products</h2>
       <div class="home-product-grid">
@@ -50,7 +56,9 @@
         </div>
       </div>
     </div>
+</div>
 
+<div data-aos="fade-right">
     <div class="reviews">
       <h2>Customer Reviews</h2>
       <div class="review-cards">
@@ -68,7 +76,7 @@
         </div>
       </div>
     </div>
-
+</div>
     
 
       <div class="social-media">

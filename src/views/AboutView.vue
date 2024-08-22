@@ -1,29 +1,36 @@
 <template>
   <div class="about">
+    <div data-aos="fade-down" data-aos-duration="500">
     <div class="about-background">
       <div class="about-heading">
         <h1>About Us</h1>
       </div>
     </div>
+    </div>
+
+    <div data-aos="zoom-in">
     <div id="about" class="padding-large">
       <h2>Who Micasa Is</h2>
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 text-center icon-text-block">
-            <i class="fas fa-couch fa-2x"></i>
+            <i class="fas fa-couch fa-2x moving-icon"></i>
             <h3>Micasa is a premier home décor brand providing a thoughtfully curated range of chic furniture and accessories.</h3>
           </div>
           <div class="col-md-8 text-center icon-text-block">
-            <i class="fas fa-gem fa-2x"></i>
+            <i class="fas fa-gem fa-2x moving-icon"></i>
             <h3>Renowned for its exceptional craftsmanship and contemporary design, Micasa assists you in crafting personalized and sophisticated spaces.</h3>
           </div>
           <div class="col-md-8 text-center icon-text-block">
-            <i class="fas fa-paint-brush fa-2x"></i>
+            <i class="fas fa-paint-brush fa-2x moving-icon"></i>
             <h3>With our expert design services and extensive product range, Micasa facilitates the seamless transformation of your home into a warm and aesthetically pleasing sanctuary.</h3>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  
+  <div data-aos="zoom-in">
     <div class="what-we-offer">
   <div class="container">
     <h2>What We Offer</h2>
@@ -41,6 +48,9 @@
     </ul>
   </div>
 </div>
+  </div>
+
+  <div data-aos="zoom-in">
 <div class="values-section">
     <div class="container">
       <h2>Our Values</h2>
@@ -78,10 +88,14 @@
     </div>
   </div>
     </div>
+  </div>
 </template>
 <style>
 @import url('../assets/css/styles.css');
 /* styles.css */
+
+
+
 
 /* Responsive design */
 @media (max-width: 991px) {

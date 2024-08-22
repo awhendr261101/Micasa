@@ -1,7 +1,9 @@
 <template>
     <div class="product-page">
+        <div data-aos="fade-down" data-aos-duration="500">
       <div class="product-header">
         <h1>Products</h1>
+      </div>
       </div>
       <h2>What we offer</h2>
       <div class="content-container">

@@ -1,10 +1,11 @@
 <template>
     <div class="contact">
       <!-- Contact Us Section with Image Background -->
+      <div data-aos="fade-down" data-aos-duration="500">
       <div class="contact-header">
         <h1>Contact Us</h1>
       </div>
-  
+      </div>
       <!-- Contact Information and Form Section -->
       <div class="contact-container">
         <!-- Contact Information Section -->
