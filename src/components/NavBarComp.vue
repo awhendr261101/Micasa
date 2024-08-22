@@ -4,24 +4,36 @@
         <li class="brand">
           <img src="https://jords-springy.github.io/hostedimages/images/logo.png" alt="Micasa Logo" class="logo" />
         </li>
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
-        <li><router-link to="/products">Products</router-link></li>
-        <li><router-link to="/contact">Contact</router-link></li>
-        <li><router-link to="/admin">Admin</router-link></li>
+        <ul class="nav-links">
+          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/about">About</router-link></li>
+          <li><router-link to="/products">Products</router-link></li>
+          <li><router-link to="/contact">Contact</router-link></li>
+          <li><router-link to="/admin">Admin</router-link></li>
+        </ul>
       </ul>
     </nav>
   
     <router-view />
   </template>
   
-  <style scoped>
+  
+    <style scoped>
+    @import url('../assets/css/styles.css');
   * {
     font-family: Roboto;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .router-link-active {
+    background-color: #cfcdcd;
+    border-radius: 5px;
+    color: #575757;
   }
   
   .navbar {
-    list-style-type: none;
+    list-style-type: none; /* Remove bullets */
     margin: 0;
     padding: 0;
     background-color: #FAF9F8;
@@ -36,19 +48,24 @@
     padding: 0 20px;
     box-sizing: border-box;
     z-index: 1000;
+    justify-content: space-between; /* Space between logo and links */
   }
-  .brand{
-    height:min-content;
-    width:min-content
-  }
-  .navbar .brand {
-    margin-right: auto;
+  
+  .brand {
+    display: flex;
+    align-items: center;
   }
   
   .navbar .brand .logo {
-  max-width: 60px; /* Reduce the width to 50px */
-  height: 60px; /* Set a fixed height of 30px */
-}
+    max-width: 60px; /* Adjust as needed */
+    height: 60px; /* Adjust as needed */
+  }
+  
+  .navbar .nav-links {
+    display: flex;
+    align-items: center;
+    list-style-type: none; /* Remove bullets */
+  }
   
   .navbar li {
     margin-left: 20px;
@@ -74,20 +91,50 @@
     color: #575757;
   }
   
-  /* Default styles for mobile devices */
-  @media (max-width: 599px) {
+  /* Mobile view adjustments */
+  @media (max-width: 768px) {
     .navbar {
       flex-direction: column;
+      align-items: center; /* Center aligns the content */
       padding: 10px;
-      height: auto;
     }
+  
+    .navbar .nav-links {
+      flex-direction: column;
+      margin-top: 10px;
+    }
+  
+    .navbar .brand {
+      margin-bottom: 10px; /* Add margin below logo */
+    }
+  
     .navbar li {
       margin-left: 0;
       margin-top: 10px;
     }
+  
+    .navbar li a {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+  
+  /* Default styles for mobile devices */
+  @media (max-width: 599px) {
+    .navbar {
+      padding: 10px;
+      height: auto;
+    }
+  
+    .navbar li {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  
     .navbar .brand {
       margin-bottom: 10px;
     }
+  
     .navbar li a {
       padding: 10px;
       font-size: 12px;
@@ -100,9 +147,15 @@
       flex-direction: row;
       padding: 15px;
     }
+  
+    .navbar .nav-links {
+      flex-direction: row;
+    }
+  
     .navbar li {
       margin-left: 15px;
     }
+  
     .navbar li a {
       padding: 12px 15px;
       font-size: 14px;
@@ -115,9 +168,15 @@
       flex-direction: row;
       padding: 20px;
     }
+  
+    .navbar .nav-links {
+      flex-direction: row;
+    }
+  
     .navbar li {
       margin-left: 20px;
     }
+  
     .navbar li a {
       padding: 15px 20px;
       font-size: 14px;
@@ -130,13 +189,20 @@
       flex-direction: row;
       padding: 25px;
     }
+  
+    .navbar .nav-links {
+      flex-direction: row;
+    }
+  
     .navbar li {
       margin-left: 25px;
     }
+  
     .navbar li a {
       padding: 20px 25px;
       font-size: 16px;
     }
   }
-  </style>
   
+    </style>
+    

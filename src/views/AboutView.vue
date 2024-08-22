@@ -80,7 +80,67 @@
     </div>
 </template>
 <style>
-@import '../assets/css/styles.css'
+@import url('../assets/css/styles.css');
+/* styles.css */
+
+/* Responsive design */
+@media (max-width: 991px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .icon-text-block {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .value-item {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-background {
+    padding: 30px 15px;
+  }
+
+  .padding-large {
+    padding: 30px 15px;
+  }
+
+  .icon-text-block h3 {
+    font-size: 16px;
+  }
+
+  .value-item h3 {
+    font-size: 18px;
+  }
+
+  .value-item p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 575px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .icon-text-block h3 {
+    font-size: 14px;
+  }
+
+  .value-item h3 {
+    font-size: 16px;
+  }
+
+  .value-item p {
+    font-size: 12px;
+  }
+}
 </style>
 
 

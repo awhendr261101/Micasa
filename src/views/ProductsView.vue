@@ -1,23 +1,24 @@
 <template>
     <div class="product-page">
-      
       <div class="product-header">
         <h1>Products</h1>
       </div>
       <h2>What we offer</h2>
-      
       <div class="content-container">
-        
         <div class="product-grid">
-          <CardComp
-            v-for="product in sortedProducts"
-            :key="product.id"
-            :product="product"
-            @toggle-details="toggleProductDetails"
-          />
+<CardComp
+    v-for="product in sortedProducts"
+    :key="product.id"
+    :product="product"
+    @toggle-details="toggleProductDetails"
+  >
+    <template v-if="product.showDetails">
+      <!-- render product details here -->
+    </template>
+  
+</CardComp>
         </div>
   
-      
         <div class="sidebar">
           <div class="search-container">
             <input type="text" placeholder="Search..." v-model="searchQuery" />
@@ -38,11 +39,11 @@
           </div>
           <h4>Categories</h4>
           <ul>
-            <li @click="showAllProducts">All Products</li>
-            <li v-for="(category, index) in categories" :key="category + index" @click="filterByCategory(category)">
-              {{ category }}
-            </li>
-          </ul>
+            <li @click="showAllProducts" :class="{ active: !selectedCategory }">All Products</li>
+            <li v-for="(category, index) in categories" :key="index" @click="filterByCategory(category)" :class="{ active: selectedCategory === category }">
+    {{ category }}
+  </li>
+  </ul>
   
           <h4>Filter by Price</h4>
           <ul>
@@ -50,6 +51,7 @@
               v-for="(priceRange, index) in priceFilters"
               :key="priceRange.label + index"
               @click="filterByPriceRange(priceRange)"
+              :class="{ active: selectedPriceRange === priceRange }"
             >
               {{ priceRange.label }}
             </li>
@@ -67,6 +69,8 @@
   
   <script>
   import CardComp from "../components/CardComp.vue";
+  import axios from "axios";
+  
   
   export default {
     name: "ProductsView",
@@ -75,32 +79,18 @@
     },
     data() {
       return {
-        products: [
-          { id: 1, name: "Product 1", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 100, description: "This is a description of Product 1", category: "Living Room" },
-          { id: 2, name: "Product 2", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 200, description: "This is a description of Product 2", category: "Bedroom" },
-          { id: 3, name: "Product 3", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 400, description: "This is a description of Product 3", category: "Office" },
-          { id: 4, name: "Product 4", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 150, description: "This is a description of Product 4", category: "Living Room" },
-          { id: 5, name: "Product 5", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 500, description: "This is a description of Product 5", category: "Living Room" },
-          { id: 6, name: "Product 6", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 95, description: "This is a description of Product 6", category: "Office" },
-          { id: 7, name: "Product 7", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 175, description: "This is a description of Product 7", category: "Living Room" },
-          { id: 8, name: "Product 8", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 225, description: "This is a description of Product 8", category: "Bedroom" },
-          { id: 9, name: "Product 9", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 120, description: "This is a description of Product 9", category: "Living Room" },
-          { id: 10, name: "Product 10", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 300, description: "This is a description of Product 10", category: "Living Room" },
-          { id: 11, name: "Product 11", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 345, description: "This is a description of Product 11", category: "Bedroom" },
-          { id: 12, name: "Product 12", image: "https://jords-springy.github.io/hostedimages/images/product.jpg", price: 140, description: "This is a description of Product 12", category: "Office" },
-        ],
-        categories: ["Living Room", "Bedroom", "Office"],
+        products: [],
+        categories: [],
         priceFilters: [
-          { label: "R0 - R100", min: 0, max: 100 },
+          { label: "Under R50", min: 0, max: 50 },
+          { label: "R50 - R100", min: 50, max: 100 },
           { label: "R100 - R200", min: 100, max: 200 },
-          { label: "R200 - R300", min: 200, max: 300 },
-          { label: "R300 - R400", min: 300, max: 400 },
-          { label: "R400 - R500", min: 400, max: 500 },
+          { label: "Over R200", min: 200, max: Infinity },
         ],
         selectedCategory: null,
         selectedPriceRange: null,
         searchQuery: "",
-        sortOrder: "asc", 
+        sortOrder: "asc",
       };
     },
     computed: {
@@ -108,46 +98,58 @@
         let filtered = this.products;
   
         if (this.selectedCategory) {
-          filtered = filtered.filter((product) => product.category === this.selectedCategory);
+          filtered = filtered.filter(
+            (product) => product.Category === this.selectedCategory
+          );
         }
   
         if (this.selectedPriceRange) {
           filtered = filtered.filter((product) => {
-            const price = Number(product.price);
-            return price >= this.selectedPriceRange.min && price <= this.selectedPriceRange.max;
+            const price = Number(product.amount);
+            return (
+              price >= this.selectedPriceRange.min &&
+              price <= this.selectedPriceRange.max
+            );
           });
         }
   
         if (this.searchQuery) {
           filtered = filtered.filter((product) =>
-            product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+            product.prodName.toLowerCase().includes(this.searchQuery.toLowerCase())
           );
         }
   
         return filtered;
       },
       sortedProducts() {
-    return this.filteredProducts.slice().sort((a, b) => {
-      if (this.sortOrder === "asc") {
-       
-        return Number(a.price) - Number(b.price);
-      } else if (this.sortOrder === "desc") {
-       
-        return Number(b.price) - Number(a.price);
-      } else if (this.sortOrder === "id-asc") {
-        
-        return a.id - b.id;
-      } else if (this.sortOrder === "id-desc") {
-      
-        return b.id - a.id;
-      } else {
-        
-        return 0;
-      }
-    });
-  },
-},
+        const sorted = this.filteredProducts.slice().sort((a, b) => {
+          if (this.sortOrder === "asc") {
+            return Number(a.amount) - Number(b.amount);
+          } else if (this.sortOrder === "desc") {
+            return Number(b.amount) - Number(a.amount);
+          } else if (this.sortOrder === "id-asc") {
+            return a.prodID - b.prodID;
+          } else if (this.sortOrder === "id-desc") {
+            return b.prodID - a.prodID;
+          } else {
+            return 0;
+          }
+        });
+  
+        return sorted;
+      },
+    },
     methods: {
+      async fetchProducts() {
+        try {
+          const response = await axios.get("https://micasa.onrender.com/products");
+          this.products = response.data.result;
+          this.categories = [...new Set(this.products.map((product) => product.Category))];
+          console.log('Categories:', this.categories); // Debugging
+        } catch (error) {
+          console.error(error);
+        }
+      },
       filterByCategory(category) {
         this.selectedCategory = category;
       },
@@ -173,68 +175,271 @@
       },
       toggleProductDetails(product) {
         // Implement the logic to toggle product details
+        product.showDetails = !product.showDetails;
       },
     },
     created() {
-      this.retrieveSortOrder(); // Retrieve sort order when component is created
+      this.retrieveSortOrder();
+    },
+    mounted() {
+      this.fetchProducts();
     },
   };
   </script>
   
   <style scoped>
-  /* Product Page Layout */
+  
+  @import url('../assets/css/styles.css');
+  /* Base styles for the Product View */
   .product-page {
     padding: 20px;
-  }
-  
-  .product-header {
-    background-image: url("https://jords-springy.github.io/hostedimages/images/products_page.jpg");
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the page takes at least the full viewport height */
   }
   
-  /* Content Container for Products and Sidebar */
+  .product-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
   .content-container {
     display: flex;
-    justify-content: space-between;
-  }
-  
-  /* Product Grid */
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(4, 1fr));
+    flex-wrap: wrap;
     gap: 20px;
-    width: 75%;
+    flex: 1; /* Allow content to grow and push the footer to the bottom */
   }
   
-  /* Sidebar Styling */
+  .product-grid {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-height: calc(3 * (200px + 20px)); /* Adjust based on item height + gap */
+    overflow-y: auto; /* Scroll vertically if content exceeds the height */
+  }
+  
   .sidebar {
-    width: 25%;
-    padding: 20px;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
   }
   
   .search-container {
     display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
   }
   
-  input[type="text"] {
-    flex-grow: 1;
+  .search-container input {
+    flex: 1;
+    padding: 5px;
   }
   
-  button {
-    background-color: #eee;
+  .search-container button {
+    background: none;
     border: none;
     cursor: pointer;
   }
   
-  select {
-    width: 100%;
+  h4 {
+    font-size: 1.2rem;
     margin-top: 20px;
   }
-  </style>
   
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  li.active {
+    background-color: #f0f0f0;
+  }
+  
+  /* Responsive image styling */
+  .product-grid img {
+    width: 100%; /* Ensure images take full width of the grid cell */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure images cover the grid cell without distortion */
+  }
+  
+  /* Footer styling */
+  footer {
+    padding: 20px;
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1440px) {
+    .product-header h1 {
+      font-size: 1.8rem;
+    }
+  
+    h2 {
+      font-size: 1.4rem;
+    }
+  
+    .search-container {
+      flex-direction: row;
+    }
+  
+    .search-container input {
+      margin-right: 10px;
+    }
+  
+    .search-container button {
+      padding: 8px;
+    }
+  
+    .product-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .product-header h1 {
+      font-size: 1.6rem;
+    }
+  
+    h2 {
+      font-size: 1.3rem;
+    }
+  
+    .search-container {
+      flex-direction: column;
+    }
+  
+    .search-container input {
+      margin-bottom: 10px;
+    }
+  
+    .search-container button {
+      width: 100%;
+      padding: 8px;
+    }
+  
+    .product-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .product-header h1 {
+      font-size: 1.5rem;
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+    }
+  
+    .content-container {
+      flex-direction: column;
+    }
+  
+    .product-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  
+    .sidebar {
+      margin-top: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .product-header h1 {
+      font-size: 1.5rem;
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+    }
+  
+    .search-container {
+      flex-direction: column;
+    }
+  
+    .search-container input {
+      margin-bottom: 10px;
+    }
+  
+    .search-container button {
+      width: 100%;
+    }
+  
+    h4 {
+      font-size: 1rem;
+    }
+  
+    li {
+      padding: 5px;
+      font-size: 0.9rem;
+    }
+  
+    .product-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media (max-width: 300px) {
+    .product-header h1 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+  
+    h2 {
+      font-size: 1rem;
+    }
+  
+    .content-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .product-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  
+    .sidebar {
+      margin-top: 15px;
+      padding: 5px;
+    }
+  
+    .search-container {
+      flex-direction: column;
+      gap: 5px;
+    }
+  
+    .search-container input {
+      padding: 3px;
+    }
+  
+    .search-container button {
+      width: 100%;
+      padding: 5px;
+    }
+  
+    h4 {
+      font-size: 0.9rem;
+    }
+  
+    li {
+      padding: 3px;
+      font-size: 0.8rem;
+    }
+  }
+  
+  </style>

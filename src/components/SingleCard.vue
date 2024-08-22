@@ -22,12 +22,6 @@
           {{ showDetails ? 'Show Less' : 'View More' }}
         </button>
 
-        <router-link :to="`product/${product.prodID}`">
-            <button>
-                View Product
-            </button>
-        </router-link>
-
       </slot>
       <slot name="oneProd">
 

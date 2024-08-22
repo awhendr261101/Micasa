@@ -3,6 +3,7 @@
     color: #333;
     margin: 0;
     padding: 0;
+    font-family: Merriweather , serif;
   }
   body {
     font-family: 'Merriweather', serif;
@@ -59,8 +60,23 @@
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease;
+    transform: 0.3s ease;
+    display: inline-block;
+    text-align: center;
   }
+
+
+  
+  .explore-btn a {
+    color: #fff; /* Ensure the link text color matches the button color */
+    text-decoration: none; /* Remove underline from the link */
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    line-height: 1.5;
+  }
+  
   .explore-btn:hover {
     background-color: #A15B4C;
     transform: scale(1.05);
@@ -75,27 +91,92 @@
     margin-bottom: 30px;
     font-family: 'Merriweather', serif;
   }
+/* Styles for the category images */
+.categories {
+    padding: 20px;
+  }
+  
   .category-grid {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    gap:5px; /* Adjust spacing between categories as needed */
   }
+  
   .category {
-    text-align: center;
-    width: 250px;
-    margin: 15px;
-    transition: transform 0.3s ease;
+    flex: 1; /* Ensure categories take equal width */
+    overflow: hidden;
+    border-radius: 8px; /* Optional: for rounded corners */
+    max-width: 250px; /* Adjust the maximum width as needed */
+    height: auto; /* Maintain aspect ratio */
   }
+  
+  .category img {
+    width: 100%;
+    height: 150px; /* Adjust the height as needed */
+    object-fit: cover; /* Ensure images cover the div while maintaining aspect ratio */
+    border-radius: 8px; /* Optional: for rounded corners */
+  }
+  
   .category:hover {
     transform: scale(1.05);
   }
-  .category img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+
+  .home {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between each section */
   }
+  
+  .horizontal-container {
+    display: flex;
+    gap: 20px; /* Space between each child */
+  }
+  
+  .category, .home-featured-products, .reviews {
+    flex: 1; /* Ensure each section takes equal width */
+    min-width: 300px; /* Optional: ensure sections don't get too narrow */
+  }
+  
+  /* Specific styles for each section */
+  .categories, .home-featured-products, .reviews {
+    padding: 20px; /* Optional: add padding for content */
+  }
+  
+  .home-featured-products, .reviews {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Style adjustments for each section */
+  .category-grid {
+    display: flex;
+    gap: 10px; /* Space between categories */
+  }
+  
+  .home {
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    gap: 20px; /* Space between each section */
+    padding: 0; /* Ensure no extra padding around sections */
+    margin: 0; /* Ensure no extra margin around sections */
+  }
+  
+  .categories, .home-featured-products, .reviews {
+    /* Removed border and padding from these sections */
+    padding: 20px; /* Optional: add padding for content */
+  }
+  
+  .category-grid {
+    display: flex;
+    gap: 10px; /* Space between categories */
+  }
+  
+  .category img {
+    max-width: 100%; /* Ensure images fit within their container */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  
   .category img:hover {
     transform: scale(1.1);
   }
@@ -104,51 +185,95 @@
     font-size: 20px;
   }
   .home-featured-products {
-    padding: 40px 20px;
     background: #F9F9F9;
+    padding: 20px; /* Add some padding for better spacing */
   }
+  
   .home-featured-products h2 {
     text-align: center;
-    font-size: 32px;
-    margin-bottom: 30px;
+    font-size: 24px; /* Reduced font size */
+    margin-bottom: 20px; /* Adjusted margin */
     font-family: 'Merriweather', serif;
   }
+  
   .home-product-grid {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: space-between; /* Align items with space between */
+    gap: 20px; /* Adjust gap between items */
   }
+  
   .home-product {
     background: #F9F9F9;
-    padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
     text-align: center;
-    width: 220px;
-    margin: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: calc(33.33% - 20px); /* Adjust width to fit 3 items per row with space in between */
+    max-width: 280px; /* Ensure the card does not exceed this width */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
   }
+  
   .home-product:hover {
     transform: scale(1.05);
   }
+  
   .home-product img {
     max-width: 100%;
-    height: auto;
+    height: 200px; /* Fixed height to match category images */
+    object-fit: cover; /* Ensure images cover the area without distortion */
     border-radius: 8px;
     transition: transform 0.3s ease;
   }
+  
   .home-product img:hover {
     transform: scale(1.1);
   }
+  
   .home-product h3 {
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: 16px; /* Adjusted font size */
+    margin: 8px 0; /* Adjusted margin */
   }
+  
   .home-product p {
-    font-size: 16px;
+    font-size: 14px; /* Adjusted font size */
     color: #555;
+    margin: 0 8px; /* Adjusted margin */
   }
+  
+  .category-grid, .home-product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Consistent gap between items */
+  }
+  
+  .category, .home-product {
+    flex: 1 1 calc(33.33% - 20px); /* Ensure 3 items per row with space in between */
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+ .home-featured-products img {
+    width: 100px;
+    height: auto; /* Set consistent height for category and product images */
+    object-fit: cover; /* Ensure images cover the area without distortion */
+  }
+  
+  @media (max-width: 991px) {
+    .home-product, .category {
+      flex: 1 1 calc(50% - 20px); /* 2 items per row */
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .home-product, .category {
+      flex: 1 1 100%; /* Full width per item */
+    }
+  }
+  
+  
+  
   .view-details-btn {
     background-color: #B8A18E;
     color: #fff;
@@ -182,38 +307,41 @@
     background: #F9F9F9;
     text-align: center;
   }
+  
   .reviews h2 {
     font-size: 32px;
     margin-bottom: 30px;
   }
+  
   .review-cards {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: center; /* Center the cards horizontally */
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  gap: 250px; /* Increased space between cards */
   }
+  
   .review-card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    text-align: left;
-    width: 300px;
-    margin: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    max-width: 300px; /* adjust the max width as needed */
+    margin: 20px; /* add some margin to create space between cards */
   }
+  
   .review-card p {
     font-size: 18px;
     margin-bottom: 15px;
     color: #333;
   }
+  
   .review-card span {
     font-size: 16px;
     color: #888;
   }
+  
   .review-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   }
+  
   .newsletter {
     padding: 40px 20px;
     background: #fff;
@@ -534,7 +662,6 @@
   .products-card h3 {
     margin-top: 10px;
     font-size: 18px;
-   
   }
   
   .products-card p {
@@ -542,16 +669,9 @@
     color: #666;
   }
   
-  .products-card:hover {
-    background: #F9F9F9;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    text-align: center;
-    width: 220px;
-    margin: 15px;
+  .products-card img:hover {
+    transform: scale(1.1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
   }
   .products-view-more-btn {
     margin-top: 20px; /* Move the button below the product name */
