@@ -2713,6 +2713,10 @@ footer {
         height: 70px; /* Increase size for extra-large screens */
     }
 }
+
+.product{
+    padding-bottom:200px;
+  }
 /* [data-aos] {
     opacity: 1 !important;
     transform: none !important;
