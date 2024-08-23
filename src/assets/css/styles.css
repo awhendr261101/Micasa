@@ -2665,6 +2665,54 @@ footer {
       font-size: 12px;
     }
   }
+
+    /* For very small screens (min-width: 300px) */
+@media (min-width: 300px) {
+    .spinner-container {
+        height: 100vh; /* Ensure full viewport height for very small screens */
+    }
+
+    .spinner {
+        width: 40px; /* Adjust size for very small screens */
+        height: 40px; /* Adjust size for very small screens */
+    }
+}
+
+/* For tablets and small desktops (min-width: 768px) */
+@media (min-width: 768px) {
+    .spinner-container {
+        height: 100vh; /* Maintain full viewport height */
+    }
+
+    .spinner {
+        width: 50px; /* Adjust size for tablets and small desktops */
+        height: 50px; /* Adjust size for tablets and small desktops */
+    }
+}
+
+/* For larger desktops (min-width: 1024px) */
+@media (min-width: 1024px) {
+    .spinner-container {
+        height: 100vh; /* Maintain full viewport height */
+    }
+
+    .spinner {
+        width: 60px; /* Increase size for larger desktops */
+        height: 60px; /* Increase size for larger desktops */
+    }
+}
+
+/* For extra-large screens (min-width: 1440px) */
+@media (min-width: 1440px) {
+    .spinner-container {
+        height: 100vh; /* Maintain full viewport height */
+    }
+
+    .spinner {
+        width: 70px; /* Increase size for extra-large screens */
+        height: 70px; /* Increase size for extra-large screens */
+    }
+}
 /* [data-aos] {
     opacity: 1 !important;
     transform: none !important;

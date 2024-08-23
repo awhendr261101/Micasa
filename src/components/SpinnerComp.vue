@@ -15,5 +15,6 @@
     
     <style scoped>
   @import url('../assets/css/styles.css');
+
   </style>
     
