@@ -5,6 +5,7 @@
 <div data-aos="fade-down" data-aos-duration="500">
     <div class="section">
       <img src="https://jords-springy.github.io/hostedimages/images/landing.jpg" alt="Landing Page Image" class="hero-image">
+      <div class="spacer"></div>
       <div class="text">
         <h1>Welcome to Micasa</h1>
         <p>

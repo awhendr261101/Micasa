@@ -38,7 +38,7 @@ export default {
 },
   mounted() {
     this.fetchData();
-    // AOS.init(); // Initialize AOS when the component is mounted
+    AOS.init(); // Initialize AOS when the component is mounted
   },
   methods: {
     async fetchData() {
