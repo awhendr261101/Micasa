@@ -24,7 +24,7 @@
                     <td>{{ user.userPass }}</td>
                     <td>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-success mb-3" @click="updateUID(user)" data-bs-toggle="modal" data-bs-target="#exampleModalLong" style="width: 5rem;">
+                        <button type="button" class="editbtn" @click="updateUID(user)" data-bs-toggle="modal" data-bs-target="#exampleModalLong" style="width: 5rem;">
                         Edit
                         </button>
 
@@ -107,7 +107,7 @@
 
                         <br> 
 
-                        <button style="width: 5rem;" type="button" @click="userDelete(user.userID)" class="btn btn-danger" :id="user.userID" deleteProduct ><i class="fa fa-angle-left"></i> Delete</button>  
+                        <button style="width: 5rem;" type="button" @click="userDelete(user.userID)" class="deletebtn" :id="user.userID" deleteProduct ><i class="fa fa-angle-left"></i> Delete</button>  
                     </td>
                 </tr>
               </tbody>
@@ -115,7 +115,7 @@
                 <tr>
                     <td>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="addbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     ADD User
                     </button>
 
@@ -197,7 +197,7 @@
                     </div>
                   </td>
                   <td colspan="8" class="hidden-xs"></td>
-                  <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                  <td><a href="#" class="checkoutbtn">Checkout <i class="fa fa-angle-right"></i></a></td>
                 </tr>
               </tfoot>
             </table>
@@ -226,7 +226,7 @@
                     <td>{{ prod.Category }}</td>
                     <td>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger mb-3" @click="updateID(prod)" data-bs-toggle="modal" data-bs-target="#editProd" style="width: 5rem;">
+                        <button type="button" class="editbtn" @click="updateID(prod)" data-bs-toggle="modal" data-bs-target="#editProd" style="width: 5rem;">
                         Edit
                         </button>
 
@@ -296,7 +296,7 @@
 
                         <br> 
 
-                        <button style="width: 5rem;" type="button" @click="prodDelete(prod.prodID)" class="btn btn-danger" :id="prod.prodID" deleteProduct ><i class="fa fa-angle-left"></i> Delete</button>  
+                        <button style="width: 5rem;" type="button" @click="prodDelete(prod.prodID)" class="deletebtn" :id="prod.prodID" deleteProduct ><i class="fa fa-angle-left"></i> Delete</button>  
                     </td>
                 </tr>
               </tbody>
@@ -304,7 +304,7 @@
                 <tr>
                   <td>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="addbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     ADD PRODUCT
                     </button>
 
@@ -373,7 +373,7 @@
                     </div>
                   </td>
                   <td colspan="9" class="hidden-xs"></td>
-                  <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                  <td><a href="#" class="checkoutbtn">Checkout <i class="fa fa-angle-right"></i></a></td>
                 </tr>
               </tfoot>
             </table>
