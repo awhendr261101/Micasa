@@ -1,7 +1,7 @@
 <template>
     <div class="table-responsive">
     <div class="container-fluid" admin>
-      <div class="admin-background">
+      
         <h2>welcome to our Admin</h2>
         <div class="row">
             <table class="table table-hover table-light">
@@ -382,7 +382,7 @@
         </div>
       </div>
     </div>
-    </div>
+  
 
 </template>
 <script setup>
