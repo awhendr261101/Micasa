@@ -184,11 +184,8 @@
                                                 required />
                                         </span>
                                     </div>
-                                    <div class="form-control-wrapper d-md-flex d-block justify-content-between">
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                        <button type="reset" class="btn btn-dark">Reset</button>
-                                    </div>
-                                </form>
+
+                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -199,7 +196,7 @@
                     </div>
                   </td>
                   <td colspan="8" class="hidden-xs"></td>
-                  <td><a href="#" class="checkoutbtn">Checkout <i class="fa fa-angle-right"></i></a></td>
+                  <td></td>
                 </tr>
               </tfoot>
             </table>
@@ -282,14 +279,10 @@
                                                 required />
                                         </span>
                                     </div>
-                                    <div class="form-control-wrapper d-md-flex d-block justify-content-between">
-                                        <button type="submit" class="successbtn">Submit</button>
-                                        <button type="reset" class="btn btn-dark">Reset</button>
-                                    </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="button" @click="updateProd()" class="savechangesbtn" >Save changes</button>
                             </div>
                             </div>
