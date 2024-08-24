@@ -3040,6 +3040,9 @@ footer {
     text-align: center;
 }
 
+[admin]{
+    margin-top: 5rem;
+}
 /* Small devices (300px - 599px) */
 @media (max-width: 599px) {
     .container-fluid {

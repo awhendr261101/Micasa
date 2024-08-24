@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid" admin>
         <h2>welcome to our Admin</h2>
         <div class="row">
             <table class="table table-hover table-dark">
