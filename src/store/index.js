@@ -7,7 +7,7 @@ import { applyToken } from '@/service/AuthenticatedUser.js'
 import { useCookies } from 'vue3-cookies'
 const { cookies } = useCookies()
 
-const apiURL = 'http://localhost:4001/'
+const apiURL = 'https://micasa.onrender.com/'
 
 export default createStore({
   state: {
