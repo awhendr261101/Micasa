@@ -84,7 +84,7 @@
         products: [],
         categories: [],
         priceFilters: [
-          { label: "Under R50", min: 0, max: 50 },
+          
           { label: "R50 - R100", min: 50, max: 100 },
           { label: "R100 - R200", min: 100, max: 200 },
           { label: "Over R200", min: 200, max: Infinity },
@@ -188,9 +188,4 @@
     },
   };
   </script>
-  
-  <style scoped>
-  
-  @import url('../assets/css/styles.css');
  
-  </style>

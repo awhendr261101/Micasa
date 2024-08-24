@@ -64,15 +64,15 @@
       <h2>Customer Reviews</h2>
       <div class="review-cards">
         <div class="review-card">
-          <p>"Outstanding service and top-notch products! I will definitely return to shop here."</p>
+          <p class="intro-text">"Outstanding service and top-notch products! I will definitely return to shop here."</p>
           <span>- Jamie</span>
         </div>
         <div class="review-card">
-          <p>"The furniture is gorgeous and matches the description perfectly. I’m very pleased with my purchase!"</p>
+          <p class="intro-text">"The furniture is gorgeous and matches the description perfectly. I’m very pleased with my purchase!"</p>
           <span>- Alex</span>
         </div>
         <div class="review-card">
-          <p>"Quick shipping, excellent customer service, and the items are beautiful. I highly recommend this store!"</p>
+          <p class="intro-text">"Quick shipping, excellent customer service, and the items are beautiful. I highly recommend this store!"</p>
           <span>- Robyn</span>
         </div>
       </div>
@@ -154,6 +154,4 @@ export default {
 </script>
 
 
-<style scoped>
-@import url('../assets/css/styles.css');
-</style>
+

@@ -55,7 +55,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: #fff;
+  
   padding: 15px;
   background-color: rgba(255, 255, 255, 0.7);
   
@@ -306,6 +306,7 @@ body {
 }
 
 .home-featured-products {
+     /* Add this line */
     background: #F9F9F9;
     padding: 20px;
     /* Add some padding for better spacing */
@@ -320,14 +321,7 @@ body {
     font-family: 'Merriweather', serif;
 }
 
-.home-product-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    /* Align items with space between */
-    gap: 20px;
-    /* Adjust gap between items */
-}
+
 
 .home-product {
     background: #F9F9F9;
@@ -617,14 +611,7 @@ body {
     }
 }
 
-/* Section styling */
-.about-background {
-    background-image: url('https://jords-springy.github.io/hostedimages/images/about.jpg');
-    /* Replace with your background image URL */
-    background-size: cover;
-    background-position: center;
 
-}
 
 .container {
     max-width: 1140px;
@@ -638,8 +625,7 @@ body {
 }
 
 h3 {
-    font-size: 28px;
-    font-weight: bold;
+    
     margin-bottom: 20px;
 }
 
@@ -666,9 +652,7 @@ p {
 }
 
 @media (max-width: 768px) {
-    h3 {
-        font-size: 24px;
-    }
+  
 
     p {
         font-size: 14px;
@@ -734,7 +718,7 @@ h3 {
     font-size: 18px;
     color: #333;
     margin-top: 10px;
-    font-weight: 500;
+   
     transition: color 0.3s;
 }
 
@@ -888,9 +872,6 @@ svg {
         font-size: 30px;
     }
 
-    h3 {
-        font-size: 16px;
-    }
 
     .icon-text-block i {
         margin-bottom: 10px;
@@ -949,14 +930,17 @@ svg {
 
 .product-header {
     background-image: url("https://jords-springy.github.io/hostedimages/images/products_page.jpg");
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
+    background-size: cover; /* Cover the full background area */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    height: 100vh; /* Full viewport height */
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    margin: 0; /* Ensure no margin */
+    padding: 0; /* Ensure no padding */
+  }
+  
 
 /* Content Container for Products and Sidebar */
 .content-container {
@@ -1071,7 +1055,7 @@ svg {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    
 }
 
 
@@ -1398,9 +1382,7 @@ p {
     border-radius: 5px;
 }
 
-body {
-    padding-top: 60px;
-}
+
 
 .router-link-active {
     color: #575757;
@@ -2911,6 +2893,524 @@ footer {
     .contact-form textarea {
         height: 300px; /* Adjust height as needed for very large screens */
     }
+}
+
+/* Define font size for <h3> elements specifically */
+.icon-text-block h3,
+.value-item h3 {
+  font-size: 1.25rem; /* Adjust as needed */
+  margin: 0.5rem 0; /* Adjust margins if needed */
+}
+
+/* Example: Add specific styles for other elements */
+.about-heading h1 {
+  font-size: 2rem; /* Adjust as needed */
+}
+
+/* Example: Ensure h2 elements have a consistent size */
+.padding-large h2,
+.what-we-offer h2,
+.values-section h2 {
+  font-size: 1.5rem; /* Adjust as needed */
+}
+
+/* Media Query Example (if needed) */
+@media (max-width: 768px) {
+  .icon-text-block h3,
+  .value-item h3 {
+    font-size: 1rem; /* Adjust for smaller screens */
+  }
+}
+
+.admin-background {
+    background-image: url('https://jords-springy.github.io/hostedimages/images/admin.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Adjust this as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Ensure proper layering */
+    width: 100%;
+    z-index: 1; /* Make sure it’s above other content */
+}
+
+.container-fluid {
+    position: relative; /* Ensure container aligns correctly */
+    z-index: 2; /* If needed, adjust z-index to stack properly */
+    padding: 15px; /* Adjust padding if necessary */
+}
+
+/* Responsive adjustments */
+@media (max-width: 599px) {
+    .admin-background {
+        height: auto; /* Adjust height for smaller screens */
+        padding: 20px; /* Optional: adjust padding for smaller screens */
+    }
+}
+
+.editbtn{
+    text-decoration: none;
+    background-color: #B8A18E;
+    color: #fff;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    transform: 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.deletebtn{
+    text-decoration: none;
+    background-color: #444;
+    color: #fff;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    transform: 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.addbtn{
+    text-decoration: none;
+    background-color: #B8A18E;
+    color: #fff;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    transform: 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.checkoutbtn{
+    text-decoration: none;
+    background-color: #444;
+    color: #fff;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    transform: 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+
+
+.successbtn{
+    text-decoration: none;
+    background-color: #444;
+    color: #fff;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    transform: 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+.savechangesbtn{
+    text-decoration: none;
+    background-color: #444;
+    color: #fff;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    transform: 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Small devices (300px - 599px) */
+@media (max-width: 599px) {
+    .container-fluid {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 5px;
+    }
+
+    img {
+        width: 3rem; /* Smaller image size for mobile */
+    }
+
+    .editbtn, .deletebtn, .addbtn, .checkoutbtn, .successbtn, .savechangesbtn {
+        width: 100%; /* Full-width buttons */
+        font-size: 14px;
+    }
+}
+
+/* Medium devices (600px - 1023px) */
+@media (min-width: 600px) and (max-width: 1023px) {
+    .container-fluid {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    img {
+        width: 5rem;
+    }
+
+    .editbtn, .deletebtn, .addbtn, .checkoutbtn, .successbtn, .savechangesbtn {
+        width: auto;
+        font-size: 15px;
+    }
+}
+
+/* Large devices (1024px - 1440px) */
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .container-fluid {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    table {
+        font-size: 16px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    img {
+        width: 6rem;
+    }
+
+    .editbtn, .deletebtn, .addbtn, .checkoutbtn, .successbtn, .savechangesbtn {
+        font-size: 16px;
+        width: auto;
+    }
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+thead th {
+    background-color: #f2f2f2;
+    text-transform: uppercase;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Small devices (up to 599px) */
+@media (max-width: 599px) {
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 5px;
+    }
+
+    img {
+        width: 3rem; /* Smaller image for mobile */
+    }
+}
+
+/* Medium devices (600px to 1023px) */
+@media (min-width: 600px) and (max-width: 1023px) {
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    img {
+        width: 5rem;
+    }
+}
+
+/* Large devices (1024px and above) */
+@media (min-width: 1024px) {
+    table {
+        font-size: 16px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    img {
+        width: 6rem;
+    }
+}
+/* Responsive stacked table for mobile view */
+@media (max-width: 599px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    th {
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+    }
+
+    tr {
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #ddd;
+    }
+
+    td {
+        border: none;
+        padding: 10px;
+        position: relative;
+        text-align: right;
+    }
+
+    td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+/* Center table in the container */
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+}
+
+/* Responsive stacked table for mobile view */
+@media (max-width: 599px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    th {
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+    }
+
+    tr {
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #ddd;
+    }
+
+    td {
+        border: none;
+        padding: 10px;
+        position: relative;
+        text-align: right;
+    }
+
+    td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    /* Centering each row's data */
+    tr {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    td:before {
+        text-align: center;
+        width: 100%;
+        padding-left: 0;
+    }
+}
+
+/* Styling for desktop and larger views */
+@media (min-width: 600px) {
+    table {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    thead th {
+        background-color: #f2f2f2;
+        text-transform: uppercase;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    img {
+        width: 6rem;
+    }
+}
+
+/* Mobile responsiveness (300px - 599px) */
+@media (max-width: 599px) {
+    tfoot {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .addbtn, .checkoutbtn {
+        width: 100%; /* Full width on mobile */
+        text-align: center;
+        margin-bottom: 10px; /* Add some space between the buttons */
+    }
+}
+
+/* Larger screens (600px and above) */
+@media (min-width: 600px) {
+    tfoot {
+        display: table-row-group;
+    }
+
+    .addbtn, .checkoutbtn {
+        width: auto; /* Keep default behavior for larger screens */
+    }
+}
+
+
+
+/* .admin-background with background image */
+.admin-background {
+  background-image: url('https://jords-springy.github.io/hostedimages/images/admin.jpg');
+  background-size: cover; /* Ensure background covers the element */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent repeating of background image */
+  height: 100vh; /* Cover the viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px; /* Adjust padding as needed */
+}
+
+/* Media query for screens with a maximum width of 300px */
+@media (max-width: 300px) {
+  .admin-background {
+    height: 50vh; /* Adjust height for small screens */
+    padding: 10px; /* Adjust padding if needed */
+  }
+  
+  .admin-background h2 {
+    font-size: 16px; /* Adjust font size for small screens */
+    text-align: center; /* Center text on small screens */
+  }
+}
+
+/* Media query for screens between 301px and 599px */
+@media (min-width: 301px) and (max-width: 599px) {
+  .admin-background {
+    height: 60vh; /* Adjust height for slightly larger screens */
+    padding: 15px; /* Adjust padding */
+  }
+  
+  .admin-background h2 {
+    font-size: 20px; /* Increase font size slightly */
+    text-align: center; /* Center text */
+  }
+}
+
+/* Media query for screens between 600px and 1023px */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .admin-background {
+    height: 70vh; /* Adjust height for medium screens */
+    padding: 20px; /* Adjust padding */
+  }
+  
+  .admin-background h2 {
+    font-size: 24px; /* Adjust font size for medium screens */
+    text-align: center; /* Center text */
+  }
+}
+
+/* Media query for screens between 1024px and 1440px */
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .admin-background {
+    height: 80vh; /* Adjust height for large screens */
+    padding: 25px; /* Adjust padding */
+  }
+  
+  .admin-background h2 {
+    font-size: 28px; /* Increase font size for large screens */
+    text-align: center; /* Center text */
+  }
 }
 
 /* [data-aos] {

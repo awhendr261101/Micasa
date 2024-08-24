@@ -1,6 +1,9 @@
 <template>
+    <div class="table-responsive">
     <div class="container-fluid">
-        <h2>Welcome To Our Admin</h2>
+        <div class="admin-background">
+        <h2>Admin</h2>
+    </div>
         <div class="row">
             <p v-if="allUsers?.length">there are users</p>
             <table class="table table-hover table-light">
@@ -32,9 +35,6 @@
                             <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLongTitle">Update User</h5>
-                                <button type="button"  data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
                             </div>
                             <div class="modal-body">
                                 <form class="form" @submit.prevent="register">
@@ -113,6 +113,7 @@
             </table>
         </div>
     </div>
+    </div>
 </template>
 <script setup>
 import { computed, onMounted } from 'vue'
@@ -146,97 +147,6 @@ onMounted(() => {
     store.dispatch('')
 })
 </script>
-<style>
-.editbtn{
-    text-decoration: none;
-    background-color: #B8A18E;
-    color: #fff;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    transform: 0.3s ease;
-    display: inline-block;
-    text-align: center;
-}
 
-.deletebtn{
-    text-decoration: none;
-    background-color: #444;
-    color: #fff;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    transform: 0.3s ease;
-    display: inline-block;
-    text-align: center;
-}
-
-.addbtn{
-    text-decoration: none;
-    background-color: #B8A18E;
-    color: #fff;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    transform: 0.3s ease;
-    display: inline-block;
-    text-align: center;
-}
-
-.checkoutbtn{
-    text-decoration: none;
-    background-color: #444;
-    color: #fff;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    transform: 0.3s ease;
-    display: inline-block;
-    text-align: center;
-}
-
-
-
-.successbtn{
-    text-decoration: none;
-    background-color: #444;
-    color: #fff;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    transform: 0.3s ease;
-    display: inline-block;
-    text-align: center;
-}
-.savechangesbtn{
-    text-decoration: none;
-    background-color: #444;
-    color: #fff;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    transform: 0.3s ease;
-    display: inline-block;
-    text-align: center;
-}
-</style>
 
 

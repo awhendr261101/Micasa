@@ -10,14 +10,14 @@
       <div class="contact-container">
         <!-- Contact Information Section -->
         <div class="contact-info">
-          <p>
+          <p class="intro-text">
             We’re here to assist you in making your home truly beautiful. Whether you need design advice, have inquiries about our products, or require help with an order, please feel free to contact us at any time. Let’s work together to create your ideal space!
           </p>
           <div class="info-section">
             <div class="office-info">
               <h3>OUR OFFICE</h3>
               <h4>Address</h4>
-              <p>
+              <p class="intro-text">
                 Micasa Home Decor<br>
                 The Decor Hub, 12 Bree Street<br>
                 Cape Town, 8000<br>
@@ -25,13 +25,13 @@
               </p>
               <br>
               <h4>Contact Number</h4>
-              <p>+27 21 123 4567</p>
+              <p class="intro-text">+27 21 123 4567</p>
               <br>
               <h4>Email Us</h4>
-              <p>contact@micasahome.co.za</p>
+              <p class="intro-text">contact@micasahome.co.za</p>
               <br>
               <h4>Office Hours</h4>
-              <p>
+              <p class="intro-text">
                 Monday to Friday: 9:00 AM – 6:00 PM<br>
                 Saturday: 10:00 AM – 4:00 PM<br>
                 Sunday: Closed
@@ -44,7 +44,7 @@
         <!-- Contact Form Section -->
         <div class="contact-form">
           <h2>Any Questions?</h2>
-          <p>Use the form below to get in touch with us.</p>
+          <p class="intro-text">Use the form below to get in touch with us.</p>
           <form @submit.prevent="handleSubmit">
             <label for="name">Your Name </label>
             <input type="text" id="name" v-model="form.name" placeholder="Write your name here" required>
@@ -123,8 +123,3 @@
   };
   </script>
   
-  <style scoped>
-  @import url('../assets/css/styles.css');
-
-
-  </style>
