@@ -1,8 +1,10 @@
 <template>
+    <div class="table-responsive">
     <div class="container-fluid" admin>
+      <div class="admin-background">
         <h2>welcome to our Admin</h2>
         <div class="row">
-            <table class="table table-hover table-dark">
+            <table class="table table-hover table-light">
               <thead>
                 <tr>
                   <th scope="col" colspan="3">User</th>
@@ -99,7 +101,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" @click="updateUser()">Save changes</button>
+                                <button type="button" class="savechangesbtn" @click="updateUser()">Save changes</button>
                             </div>
                             </div>
                         </div>
@@ -281,14 +283,14 @@
                                         </span>
                                     </div>
                                     <div class="form-control-wrapper d-md-flex d-block justify-content-between">
-                                        <button type="submit" class="btn btn-success">Submit</button>
+                                        <button type="submit" class="successbtn">Submit</button>
                                         <button type="reset" class="btn btn-dark">Reset</button>
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" @click="updateProd()" class="btn btn-primary" >Save changes</button>
+                                <button type="button" @click="updateProd()" class="savechangesbtn" >Save changes</button>
                             </div>
                             </div>
                         </div>
@@ -359,7 +361,7 @@
                                         </span>
                                     </div>
                                     <div class="form-control-wrapper d-md-flex d-block justify-content-between">
-                                        <button type="submit" class="btn btn-success">Submit</button>
+                                        <button type="submit" class="successbtn">Submit</button>
                                         <button type="reset" class="btn btn-dark">Reset</button>
                                     </div>
                             </form>
@@ -378,6 +380,8 @@
               </tfoot>
             </table>
         </div>
+      </div>
+    </div>
     </div>
 
 </template>
