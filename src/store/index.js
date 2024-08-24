@@ -2,12 +2,12 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 import { toast } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
-
-
+import router from '@/router'
+import { applyToken } from '@/service/AuthenticatedUser.js'
 import { useCookies } from 'vue3-cookies'
 const { cookies } = useCookies()
 
-const apiURL = 'https://micasa.onrender.com/'
+const apiURL = 'http://localhost:4001/'
 
 export default createStore({
   state: {
