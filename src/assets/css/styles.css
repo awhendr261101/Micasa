@@ -2941,6 +2941,10 @@ footer {
     padding: 15px; /* Adjust padding if necessary */
 }
 
+.form{
+    margin-top: 5rem;
+}
+
 /* Responsive adjustments */
 @media (max-width: 599px) {
     .admin-background {
