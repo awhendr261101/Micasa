@@ -204,7 +204,7 @@
               </tfoot>
             </table>
 
-            <table class="table table-hover table-dark">
+            <table class="table table-hover table-light">
               <thead>
                 <tr>
                   <th scope="col" colspan="3">Product</th>
