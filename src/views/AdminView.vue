@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container-fluid">
         <h2>Welcome To Our Admin</h2>
         <div class="row" adminWrap >
             <table class="table table-hover table-light">
@@ -508,8 +508,9 @@ onMounted(() => {
 
 
 <style scoped>
-.container{
-    margin-top: 5rem;
+.container-fluid{
+    margin-top: 8rem;
+    width: 92%;
 }
 
 </style>
