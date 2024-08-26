@@ -81,8 +81,9 @@ class User{
         try {
             let data = req.body
     
-            if (data.pwd) {
-                data.pwd = await hash(data.pwd, 12)
+            if (data.userPass) {
+
+                data.userPass = await hash(data.userPass, 12)
             }
             
             db.query(`UPDATE Users SET ? WHERE userID = ${req.params.id}`, [data], (err) => {
