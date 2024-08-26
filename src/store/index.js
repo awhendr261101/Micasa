@@ -216,7 +216,7 @@ export default createStore({
         const responce = await (await axios.patch(`${apiURL}products/${data.id}`, data.load)).data
         if (responce) {
           context.dispatch('fetchProducts')
-          toast.success(`${responce}`, {
+          toast.success(`${responce.msg}`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })
