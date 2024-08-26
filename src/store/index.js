@@ -28,19 +28,6 @@ export default createStore({
     }
   },
   actions: {
-    // async fetchProducts({ commit }) {
-    //   try {
-    //     const response = await axios.get('https://micasa.onrender.com/products')
-    //     const products = response.data
-    //     if (Array.isArray(products)) {
-    //       commit('setProducts', products)
-    //     } else {
-    //       console.error('Invalid response data')
-    //     }
-    //   } catch (error) {
-    //     console.error('Error fetching products:', error)
-    //   }
-    // },
 
         // ==== User ========
     async fetchUsers(context) {
@@ -124,12 +111,16 @@ export default createStore({
 
     async deleteUser(context, id) {      
       try {
-        const data = await (await axios.delete(`${apiURL}users/${id}`)).data
+        const {msg} = await (await axios.delete(`${apiURL}users/${id}`)).data
 
-        console.log(data);
+        console.log(msg);
         
-        if (data) {
+        if (msg) {
           context.dispatch('fetchUsers')
+          toast.error(`${msg}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER
+          })
         } else {
           toast.error(`${err}`, {
             autoClose: 2000,
@@ -215,10 +206,7 @@ export default createStore({
         })
       }
     },
-    async updateProduct(context, data) {
-
-      console.log(data);
-      
+    async updateProduct(context, data) {      
       try {
         const responce = await (await axios.patch(`${apiURL}products/${data.id}`, data.load)).data
         if (responce) {
@@ -239,14 +227,14 @@ export default createStore({
       try {
         console.log('there');
         
-        const data = await (await axios.delete(`${apiURL}products/${id}`)).data
-        console.log(data);
+        const {msg} = await (await axios.delete(`${apiURL}products/${id}`)).data
+        console.log(msg);
         
-        if (data) {
+        if (msg) {
           console.log('there');
           
           context.dispatch('fetchProducts')
-          toast.success(`${data}`, {
+          toast.success(`${msg}`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })
