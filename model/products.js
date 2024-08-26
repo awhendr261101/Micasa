@@ -86,8 +86,11 @@ class Products{
     static updateProduct(req, res){
         try {
             let data = req.body
+            console.log(req.body);
+            console.log('here');
             
-            db.query(`UPDATE Products SET ? WHERE prodID = ${req.params.id}`, [data], (err) => {
+            
+            db.query(`UPDATE Products SET? WHERE prodID = ${req.params.id}`, [data], (err) => {
                 if (err) throw new Error (err);
                 res.json({
                     status: res.statusCode,
