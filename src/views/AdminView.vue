@@ -1,7 +1,7 @@
 <template>
-    <div class="container-fluid">
-        <h2>welcome to our Admin</h2>
-        <div class="row">
+    <div class="container">
+        <h2>Welcome To Our Admin</h2>
+        <div class="row" adminWrap >
             <table class="table table-hover table-light">
               <thead>
                 <tr>
@@ -505,3 +505,9 @@ onMounted(() => {
 }) 
 
 </script>
+
+
+<style scoped>
+
+
+</style>
