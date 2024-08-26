@@ -2,11 +2,12 @@
     <div class="container-fluid">
         <h2>welcome to our Admin</h2>
         <div class="row">
-            <table class="table table-hover table-dark">
+            <table class="table table-hover table-light">
               <thead>
                 <tr>
                   <th scope="col" colspan="3">User</th>
                   <th scope="col" colspan="3">User Name</th>
+                  <th scope="col">User Age</th>
                   <th scope="col" >User Role</th>
                   <th scope="col" >User Email</th>
                   <th scope="col" >Password</th>
@@ -19,24 +20,22 @@
                 <tr v-for="(user, index) in users" :key="index">
                     <td colspan="3"> <img :src="user.userProfile"  alt="${element.productName}" loading="lazy" style="width: 6rem;"> </td>
                     <td colspan="3">{{ user.firstName }} {{ user.lastName }}</td>
+                    <td>{{ user.userAge }}</td>
                     <td>{{ user.userRole }}</td>
                     <td>{{ user.emailAdd }}</td>
                     <td>{{ user.userPass }}</td>
                     <td>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-success mb-3" @click="updateUID(user)" data-bs-toggle="modal" data-bs-target="#exampleModalLong" style="width: 5rem;">
+                        <button type="button" class="btn btn-success mb-3" @click="updateUID(user)" data-bs-toggle="modal" data-bs-target="#editUser" style="width: 5rem;">
                         Edit
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
+                                <h5 class="modal-title" id="exampleModalLongTitle">Update User</h5>
                             </div>
                             <div class="modal-body">
                                 <form class="form" @submit.prevent="register">
@@ -91,14 +90,11 @@
                                                 required />
                                         </span>
                                     </div>
-                                    <div class="form-control-wrapper d-md-flex d-block justify-content-between">
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                        <button type="reset" class="btn btn-dark">Reset</button>
-                                    </div>
+                                    
                                 </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="modal-footer d-flex flex-column justify-content-around">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-primary" @click="updateUser()">Save changes</button>
                             </div>
                             </div>
@@ -115,19 +111,16 @@
                 <tr>
                     <td>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    ADD User
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUser">
+                    ADD USER
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
+                            <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
                         </div>
                         <div class="modal-body">
                             <form class="form">
@@ -182,13 +175,9 @@
                                                 required />
                                         </span>
                                     </div>
-                                    <div class="form-control-wrapper d-md-flex d-block justify-content-between">
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                        <button type="reset" class="btn btn-dark">Reset</button>
-                                    </div>
                                 </form>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer d-flex flex-column justify-content-around">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="button" @click="register" class="btn btn-primary">Save changes</button>
                         </div>
@@ -196,13 +185,13 @@
                     </div>
                     </div>
                   </td>
-                  <td colspan="8" class="hidden-xs"></td>
-                  <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                  <td colspan="10" class="hidden-xs"></td>
+                  
                 </tr>
               </tfoot>
             </table>
 
-            <table class="table table-hover table-dark">
+            <table class="table table-hover table-light">
               <thead>
                 <tr>
                   <th scope="col" colspan="3">Product</th>
@@ -235,16 +224,13 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
+                                <h5 class="modal-title" id="exampleModalLongTitle">Update product</h5>
                             </div>
                             <div class="modal-body">
-                                <form class="form" @submit.prevent="">
+                                <form class="form">
                                     <div class="form-control-wrapper">
                                         <span>
-                                            <input class="form-control" type="text" placeholder="Product name" v-model="prodPayload.prodName"
+                                            <input class="form-control" type="text" placeholder="Product names" v-model="prodPayload.prodName"
                                             required />
                                         </span>
                                     </div>
@@ -280,14 +266,10 @@
                                                 required />
                                         </span>
                                     </div>
-                                    <div class="form-control-wrapper d-md-flex d-block justify-content-between">
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                        <button type="reset" class="btn btn-dark">Reset</button>
-                                    </div>
                                 </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="modal-footer d-flex flex-column justify-content-around">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="button" @click="updateProd()" class="btn btn-primary" >Save changes</button>
                             </div>
                             </div>
@@ -313,10 +295,8 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
+                            <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
+
                         </div>
                         <div class="modal-body">
                             <form class="form" >
@@ -358,13 +338,9 @@
                                                 required />
                                         </span>
                                     </div>
-                                    <div class="form-control-wrapper d-md-flex d-block justify-content-between">
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                        <button type="reset" class="btn btn-dark">Reset</button>
-                                    </div>
                             </form>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer d-flex flex-column justify-content-around">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="button" @click="addProd" class="btn btn-primary">Save changes</button>
                         </div>
@@ -373,7 +349,7 @@
                     </div>
                   </td>
                   <td colspan="9" class="hidden-xs"></td>
-                  <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                
                 </tr>
               </tfoot>
             </table>
@@ -383,12 +359,12 @@
 </template>
 <script setup>
 import { computed, onMounted } from 'vue'
-import { reactive } from 'vue';
+import { ref } from 'vue';
 // import { useStore } from 'vuex';
 
 import store from '@/store';
 // const store = useStore()
-const payload = {
+let payload = ref({
     firstName: '',
     lastName: '',
     userAge: 0,
@@ -397,29 +373,41 @@ const payload = {
     emailAdd: '',
     userPass: '',
     userProfile: 'https://i.postimg.cc/3rZ0H0D8/profile-Image.png'
-}
+})
 
-let prodPayload = {
+let prodPayload = ref({
       prodName: "",
       prodDescription: "",
       quantity: 0,
       amount: 0,
       Category: "",
       prodUrl: ""
-}
+})
 
 
 
 // const prodPayload = null;
 
 function register() {
-    console.log(payload);
-    store.dispatch('register', payload)
+    console.log(payload.value);
+    let sendLoad = {
+        firstName: payload.value.firstName,
+        lastName: payload.value.lastName,
+        userAge: payload.value.userAge,
+        Gender: payload.value.Gender,
+        userRole: payload.value.userRole,
+        emailAdd: payload.value.emailAdd,
+        userPass: payload.value.userPass,
+        userProfile: 'https://i.postimg.cc/3rZ0H0D8/profile-Image.png'
+    }
+    console.log(sendLoad);
+    
+    store.dispatch('register', payload.value)
 }
 
 function addProd() {
     console.log(prodPayload);
-    store.dispatch('addAProduct', prodPayload)
+    store.dispatch('addAProduct', prodPayload.value)
 }
 
 function userDelete(id) {
@@ -429,6 +417,18 @@ function userDelete(id) {
 
 let uID
 function updateUID(user) {
+    console.log('there' + user);
+    payload.value = {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        userAge: user.userAge,
+        Gender: user.Gender,
+        userRole: user.userRole,
+        emailAdd: user.emailAdd,
+        userPass: user.userPass,
+        userProfile: 'https://i.postimg.cc/3rZ0H0D8/profile-Image.png'
+    }
+    
     console.log(user);
     
     uID = user.userID
@@ -436,12 +436,12 @@ function updateUID(user) {
 
 function updateUser(User) {
 
+
 const data = {
     id : uID,
-    load : payload
+    load : payload.value
 }
 
-console.log(data);
 
 
 store.dispatch('updateUser', data)
@@ -450,6 +450,18 @@ store.dispatch('updateUser', data)
 //////////////////////////////////////////////
 let pID
 function updateID(prod) {
+    console.log('here' + prod);
+    
+    prodPayload.value = {
+        prodName: prod.prodName,
+        prodDescription: prod.prodDescription,
+        quantity: prod.quantity,
+        amount: prod.amount,
+        Category: prod.Category,
+        prodUrl: prod.prodUrl
+    }
+    console.log(prodPayload.value);
+    
     pID = prod.prodID
 }
 
@@ -457,7 +469,7 @@ function updateProd(prod) {
 
     const data = {
         id : pID,
-        load : prodPayload
+        load : prodPayload.value
     }
 
     console.log(data);

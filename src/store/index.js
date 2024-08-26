@@ -94,6 +94,10 @@ export default createStore({
       try {
         const data = await (await axios.patch(`${apiURL}users/${payload.id}`, payload.load)).data
         if (data) {
+          toast.success(`${data.msg}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER
+          })
           context.dispatch('fetchUsers')
         } else {
           toast.error(`${err}`, {
@@ -116,8 +120,9 @@ export default createStore({
         console.log(msg);
         
         if (msg) {
+          
           context.dispatch('fetchUsers')
-          toast.error(`${msg}`, {
+          toast.success(`${msg}`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })
@@ -191,10 +196,10 @@ export default createStore({
     },
     async addAProduct(context, payload) {
       try {
-        const data = await (await axios.post(`${apiURL}products/addproduct`, payload)).data
-        if (data) {
+        const {message} = await (await axios.post(`${apiURL}products/addproduct`, payload)).data
+        if (message) {
           context.dispatch('fetchProducts')
-          toast.success(`${data}`, {
+          toast.success(`${message}`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })
