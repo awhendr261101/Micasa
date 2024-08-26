@@ -26,7 +26,7 @@
                     <td>{{ user.userPass }}</td>
                     <td>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-success mb-3" @click="updateUID(user)" data-bs-toggle="modal" data-bs-target="#editUser" style="width: 5rem;">
+                        <button type="button" class="btn btn-secondary mb-3" @click="updateUID(user)" data-bs-toggle="modal" data-bs-target="#editUser" style="width: 5rem;">
                         Edit
                         </button>
 
@@ -103,7 +103,7 @@
 
                         <br> 
 
-                        <button style="width: 5rem;" type="button" @click="userDelete(user.userID)" class="btn btn-danger" :id="user.userID" deleteProduct ><i class="fa fa-angle-left"></i> Delete</button>  
+                        <button style="width: 5rem;" type="button" @click="userDelete(user.userID)" class="btn btn-dark" :id="user.userID" deleteProduct >Delete</button>  
                     </td>
                 </tr>
               </tbody>
@@ -111,7 +111,7 @@
                 <tr>
                     <td>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUsers">
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addUsers">
                     ADD USER
                     </button>
 
@@ -215,7 +215,7 @@
                     <td>{{ prod.Category }}</td>
                     <td>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger mb-3" @click="updateID(prod)" data-bs-toggle="modal" data-bs-target="#editProd" style="width: 5rem;">
+                        <button type="button" class="btn btn-secondary mb-3" @click="updateID(prod)" data-bs-toggle="modal" data-bs-target="#editProd" style="width: 5rem;">
                         Edit
                         </button>
 
@@ -278,7 +278,7 @@
 
                         <br> 
 
-                        <button style="width: 5rem;" type="button" @click="prodDelete(prod.prodID)" class="btn btn-danger" :id="prod.prodID" deleteProduct ><i class="fa fa-angle-left"></i> Delete</button>  
+                        <button style="width: 5rem;" type="button" @click="prodDelete(prod.prodID)" class="btn btn-dark" :id="prod.prodID" deleteProduct >Delete</button>  
                     </td>
                 </tr>
               </tbody>
@@ -286,7 +286,7 @@
                 <tr>
                   <td>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProd">
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addProd">
                     ADD PRODUCT
                     </button>
 
@@ -348,7 +348,7 @@
                     </div>
                     </div>
                   </td>
-                  <td colspan="9" class="hidden-xs"></td>
+                  <td colspan="10" class="hidden-xs"></td>
                 
                 </tr>
               </tfoot>
