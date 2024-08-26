@@ -513,4 +513,113 @@ onMounted(() => {
     width: 92%;
 }
 
+
+/* Image sizing and centering */
+img {
+    max-width: 100%;
+    height: auto;
+
+}
+
+/* Button styling and centering */
+button {
+    width: 100%;
+    margin: 0.5rem 0;
+
+}
+
+/* Ensuring responsiveness across different screen sizes */
+@media only screen and (max-width: 1440px) {
+    .container-fluid {
+        padding: 1rem;
+    }
+
+    /* Wrapping the table on smaller screens */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    thead, tbody, tfoot, tr, td, th {
+        display: block;
+        text-align: left;
+    }
+
+    th, td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        text-align: center; /* Center text inside table cells */
+    }
+
+    /* Ensure modals scale well */
+    .modal-dialog {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+
+    /* Make images smaller on smaller screens */
+    img {
+        width: 4rem;
+    }
+
+    td, th {
+        font-size: 0.8rem;
+        padding: 0.3rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    td[colspan="3"], th[colspan="3"] {
+        display: block;
+        width: 100%;
+    }
+
+    img {
+        width: 3rem;
+    }
+
+    td, th {
+        font-size: 0.7rem;
+        text-align: center; /* Center text for smallest screens */
+    }
+}
+
+/* Smallest screen styling */
+@media only screen and (max-width: 300px) {
+    h2 {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 0.8rem;
+    }
+
+    td, th {
+        font-size: 0.7rem;
+    }
+
+    img {
+        width: 2.5rem;
+    }
+
+    td, th {
+        text-align: center; /* Ensure centering on the smallest screens */
+    }
+}
 </style>
