@@ -111,12 +111,12 @@
                 <tr>
                     <td>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUser">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUsers">
                     ADD USER
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="addUsers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header">
@@ -126,56 +126,56 @@
                             <form class="form">
                                     <div class="form-control-wrapper">
                                         <span>
-                                            <input class="form-control" type="text" placeholder="First name" v-model="payload.firstName"
+                                            <input class="form-control" type="text" placeholder="First names" v-model="addpayload.firstName"
                                             required />
                                         </span>
                                     </div>
 
                                     <div class="form-control-wrapper">
                                         <span>
-                                            <input class="form-control" type="text" placeholder="last name" v-model="payload.lastName"
+                                            <input class="form-control" type="text" placeholder="last name" v-model="addpayload.lastName"
                                                 required />
                                         </span>
                                     </div>
                                     <div class="form-control-wrapper">
                                         <span>
-                                            <input class="form-control" type="number" placeholder="Age" v-model="payload.userAge" required />
+                                            <input class="form-control" type="number" placeholder="Age" v-model="addpayload.userAge" required />
                                         </span>
                                     </div>
                                     <div class="form-control-wrapper">
                                         <span>
-                                            <input class="form-control" type="Gender" placeholder="Gender" v-model="payload.Gender"
-                                                required />
-                                        </span>
-                                    </div>
-
-                                    <div class="form-control-wrapper">
-                                        <span>
-                                            <input class="form-control" type="userRole" placeholder="userRole" v-model="payload.userRole"
+                                            <input class="form-control" type="Gender" placeholder="Gender" v-model="addpayload.Gender"
                                                 required />
                                         </span>
                                     </div>
 
                                     <div class="form-control-wrapper">
                                         <span>
-                                            <input class="form-control" type="email" placeholder="Email address" v-model="payload.emailAdd"
+                                            <input class="form-control" type="userRole" placeholder="userRole" v-model="addpayload.userRole"
                                                 required />
                                         </span>
                                     </div>
 
                                     <div class="form-control-wrapper">
                                         <span>
-                                            <input class="form-control" type="password" placeholder="Password" v-model="payload.userPass"
+                                            <input class="form-control" type="email" placeholder="Email address" v-model="addpayload.emailAdd"
+                                                required />
+                                        </span>
+                                    </div>
+
+                                    <div class="form-control-wrapper">
+                                        <span>
+                                            <input class="form-control" type="password" placeholder="Password" v-model="addpayload.userPass"
                                                 required />
                                         </span>
                                     </div>
                                     <div class="form-control-wrapper">
                                         <span>
-                                            <input class="form-control" type="url" placeholder="Profile link" v-model="payload.userProfile"
+                                            <input class="form-control" type="url" placeholder="Profile link" v-model="addpayload.userProfile"
                                                 required />
                                         </span>
                                     </div>
-                                </form>
+                            </form>
                         </div>
                         <div class="modal-footer d-flex flex-column justify-content-around">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -302,39 +302,39 @@
                             <form class="form" >
                                     <div class="form-control-wrapper">
                                         <span>
-                                            <input class="form-control" type="text" placeholder="Product name" v-model="prodPayload.prodName"
+                                            <input class="form-control" type="text" placeholder="Product name" v-model="prodUpdatePay.prodName"
                                             required />
                                         </span>
                                     </div>
 
                                     <div class="form-control-wrapper">
                                         <span>
-                                            <input class="form-control" type="text" placeholder="Product Desc" v-model="prodPayload.prodDescription"
+                                            <input class="form-control" type="text" placeholder="Product Desc" v-model="prodUpdatePay.prodDescription"
                                                 required />
                                         </span>
                                     </div>
                                     <div class="form-control-wrapper">
                                         <span>
-                                            <input class="form-control" type="number" placeholder="Quantity" v-model="prodPayload.quantity" required />
+                                            <input class="form-control" type="number" placeholder="Quantity" v-model="prodUpdatePay.quantity" required />
                                         </span>
                                     </div>
                                     <div class="form-control-wrapper">
                                         <span>
-                                            <input class="form-control" type="number" placeholder="amount" v-model="prodPayload.amount"
-                                                required />
-                                        </span>
-                                    </div>
-
-                                    <div class="form-control-wrapper">
-                                        <span>
-                                            <input class="form-control" type="text" placeholder="Category" v-model="prodPayload.Category"
+                                            <input class="form-control" type="number" placeholder="amount" v-model="prodUpdatePay.amount"
                                                 required />
                                         </span>
                                     </div>
 
                                     <div class="form-control-wrapper">
                                         <span>
-                                            <input class="form-control" type="text" placeholder="Product Url" v-model="prodPayload.prodUrl"
+                                            <input class="form-control" type="text" placeholder="Category" v-model="prodUpdatePay.Category"
+                                                required />
+                                        </span>
+                                    </div>
+
+                                    <div class="form-control-wrapper">
+                                        <span>
+                                            <input class="form-control" type="text" placeholder="Product Url" v-model="prodUpdatePay.prodUrl"
                                                 required />
                                         </span>
                                     </div>
@@ -375,6 +375,17 @@ let payload = ref({
     userProfile: 'https://i.postimg.cc/3rZ0H0D8/profile-Image.png'
 })
 
+let addpayload = ref({
+    firstName: '',
+    lastName: '',
+    userAge: 0,
+    Gender: '',
+    userRole: '',
+    emailAdd: '',
+    userPass: '',
+    userProfile: 'https://i.postimg.cc/3rZ0H0D8/profile-Image.png'
+})
+
 let prodPayload = ref({
       prodName: "",
       prodDescription: "",
@@ -384,30 +395,28 @@ let prodPayload = ref({
       prodUrl: ""
 })
 
+let prodUpdatePay = ref({
+    prodName: "",
+    prodDescription: "",
+    quantity: 0,
+    amount: 0,
+    Category: "",
+    prodUrl: ""
+})
+
 
 
 // const prodPayload = null;
 
 function register() {
-    console.log(payload.value);
-    let sendLoad = {
-        firstName: payload.value.firstName,
-        lastName: payload.value.lastName,
-        userAge: payload.value.userAge,
-        Gender: payload.value.Gender,
-        userRole: payload.value.userRole,
-        emailAdd: payload.value.emailAdd,
-        userPass: payload.value.userPass,
-        userProfile: 'https://i.postimg.cc/3rZ0H0D8/profile-Image.png'
-    }
-    console.log(sendLoad);
+    console.log(addpayload.value);
+
     
-    store.dispatch('register', payload.value)
+    store.dispatch('register', addpayload.value)
 }
 
 function addProd() {
-    console.log(prodPayload);
-    store.dispatch('addAProduct', prodPayload.value)
+    store.dispatch('addAProduct', prodUpdatePay.value)
 }
 
 function userDelete(id) {
